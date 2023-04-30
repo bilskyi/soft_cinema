@@ -1,4 +1,5 @@
 {% load static %}
+<!-- TEST PAGE -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,4 +11,21 @@
   </head>
   <body>
     {% include 'home/header.html' %}
-</body>
+  
+    <section class="featured">
+        <h2>Featured Movies</h2>
+        <div class="movie-list">
+          {% for m in movie %}
+          <div class="movie">
+            <img
+              src="{{ m.poster.url }}"
+              alt="{{ m.name }}"
+            />
+            <h3>{{m.name}}</h3>
+            <p>
+              {{m.description}}
+            </p>
+          </div> {% endfor %}
+          </div>
+  </body>
+</html>

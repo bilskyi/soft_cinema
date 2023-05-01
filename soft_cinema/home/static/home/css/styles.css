@@ -146,6 +146,9 @@ hr {
   margin-bottom: 10px;
 }
 
+.movie a {
+  color: #fff;
+}
 /* Style footer */
 footer {
   background-color: #111;

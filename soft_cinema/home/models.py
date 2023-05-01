@@ -11,7 +11,7 @@ class Movie(models.Model):
     director = models.CharField(max_length=255)
     start_rental = models.DateField()  
     end_rental = models.DateField()
-    cat = models.ForeignKey('Category', on_delete=models.PROTECT)
+    cat = models.ManyToManyField('Category')
     language = models.CharField(max_length=255)
     duration = models.DurationField()
     production = models.CharField(max_length=255) #country

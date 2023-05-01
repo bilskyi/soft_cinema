@@ -18,20 +18,12 @@
       <section class="hero">
         <h2 class="animate-charcter">Welcome to Cinema Site</h2>
         <p>Explore our latest movies and find a theater near you.</p>
-        <a href="#" class="btn">View Movies</a>
+        <a href="{% url 'movies' %}" class="btn">View Movies</a>
       </section>
       <hr />
       <section class="featured">
         <h2>Featured Movies</h2>
-        <div class="movie-list">
-          {% for m in movie %}
-          <div class="movie">
-            <img src="{{m.poster.url}}" alt="Movie {{m.name}}" />
-            <h3>{{m.name}}</h3>
-            <p>{{m.description | truncatewords:40}}</p>
-          </div>
-          {% endfor %}
-        </div>
+        {% include 'home/movie_list.html' %}
       </section>
     </main>
     <footer>

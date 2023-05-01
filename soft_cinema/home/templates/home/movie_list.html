@@ -1,0 +1,8 @@
+<div class="movie-list">
+  {% for m in movie %}
+  <div class="movie">
+    <img src="{{ m.poster.url }}" alt="{{ m.name }}" />
+    <h3>{{m.name}}</h3>
+  </div>
+  {% endfor %}
+</div>

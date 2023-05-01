@@ -111,14 +111,16 @@ hr {
 }
 
 /* Style movie list */
+/* Set up grid for movie list */
 .movie-list {
   margin: 0 1%;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 20px;
 }
 
+/* Style movie item */
 .movie {
-  width: 15%;
   background-color: #444;
   padding: 20px;
   border-radius: 5px;
@@ -213,12 +215,15 @@ footer p {
   }
 
   .movie-list {
+    margin: 0 1%;
+    display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
   }
 
   .movie {
     width: 40%;
+    display: inline-block;
     margin-bottom: 20px;
     padding: 8px;
     margin-right: 10px;

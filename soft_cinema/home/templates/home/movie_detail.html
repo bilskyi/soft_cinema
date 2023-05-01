@@ -1,0 +1,10 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'home/css/styles.css' %}" />
+{% include 'home/header.html' %}
+<div class="movie-list">
+  <div class="movie">
+    <img src="{{ movie.poster.url }}" alt="{{ movie.name }}" />
+    <a href="{% url 'home' %}"><h3>{{movie.name}}</h3></a>
+    <p>{{movie.description}}</p>
+  </div>
+</div>

@@ -6,7 +6,7 @@ class Movie(models.Model):
     slug = models.SlugField(max_length=255, unique=True, db_index=True)
     poster = models.ImageField(upload_to='posters/')
     age_limit = models.PositiveIntegerField()
-    year = models.PositiveIntegerField(verbose_name='Released date') #year of production
+    year = models.PositiveIntegerField() #year of production
     original_name = models.CharField(max_length=255)
     director = models.CharField(max_length=255)
     start_rental = models.DateField()  
@@ -18,7 +18,7 @@ class Movie(models.Model):
     studio = models.CharField(max_length=255)
     starring = models.TextField()
     description = models.TextField()
-    released = models.BooleanField()
+    state = models.ManyToManyField('State') # Now playing / Coming soon / the abilty to buy tickets
    
 
     def __str__(self) -> str:
@@ -26,7 +26,7 @@ class Movie(models.Model):
     
 
 class Category(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, db_index=True)
     slug = models.SlugField(max_length=255, unique=True, db_index=True)
 
     def __str__(self) -> str:
@@ -36,3 +36,11 @@ class Category(models.Model):
     class Meta:
         verbose_name = 'Category / Genre'
         verbose_name_plural = 'Categories / Genres'
+
+
+class State(models.Model):
+    stage = models.CharField(max_length=255, db_index=True)
+    slug = models.SlugField(max_length=255, unique=True, db_index=True)
+
+    def __str__(self) -> str:
+        return self.stage

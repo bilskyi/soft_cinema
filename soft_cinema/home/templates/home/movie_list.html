@@ -2,7 +2,7 @@
   {% for m in movie %}
   <div class="movie">
     <img src="{{ m.poster.url }}" alt="{{ m.name }}" />
-    <h3>{{m.name}}</h3>
+    <a href="{% url 'movie_detail' m.slug %}"><h3>{{m.name}}</h3></a>
   </div>
   {% endfor %}
 </div>

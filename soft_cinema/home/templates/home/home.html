@@ -24,72 +24,13 @@
       <section class="featured">
         <h2>Featured Movies</h2>
         <div class="movie-list">
+          {% for m in movie %}
           <div class="movie">
-            <img
-              src="https://cdn.moviefone.com/admin-uploads/posters/shazamfuryofthegods-movie-poster_1674752642.jpg?d=360x540&q=60"
-              alt="Movie 1"
-            />
-            <h3>Movie 1</h3>
-            <p>
-              Nulla eu commodo nostrud ea pariatur incididunt duis. Exercitation
-              consequat excepteur veniam veniam labore amet.
-            </p>
+            <img src="{{m.poster.url}}" alt="Movie {{m.name}}" />
+            <h3>{{m.name}}</h3>
+            <p>{{m.description | truncatewords:40}}</p>
           </div>
-          <div class="movie">
-            <img
-              src="https://cdn.moviefone.com/admin-uploads/posters/fastx-movie-poster_1678807228.jpg?d=360x540&q=60"
-              alt="Movie 2"
-            />
-            <h3>Movie 2</h3>
-            <p>
-              Nulla eu commodo nostrud ea pariatur incididunt duis. Exercitation
-              consequat excepteur veniam veniam labore amet.
-            </p>
-          </div>
-          <div class="movie">
-            <img
-              src="https://images.fandango.com/ImageRenderer/0/0/redesign/static/img/default_poster.png/0/images/masterrepository/other/ant_man_ver5.jpg"
-              alt="Movie 3"
-            />
-            <h3>Movie 3</h3>
-            <p>
-              Nulla eu commodo nostrud ea pariatur incididunt duis. Exercitation
-              consequat excepteur veniam veniam labore amet.
-            </p>
-          </div>
-          <div class="movie">
-            <img
-              src="https://www.filmjabber.com/movie-poster-thumbs/bullet-train-movie-poster-6974.jpg"
-              alt="Movie 1"
-            />
-            <h3>Movie 4</h3>
-            <p>
-              Nulla eu commodo nostrud ea pariatur incididunt duis. Exercitation
-              consequat excepteur veniam veniam labore amet.
-            </p>
-          </div>
-          <div class="movie">
-            <img
-              src="https://1.bp.blogspot.com/-tdSc2ziLV0A/XjAXTV87hII/AAAAAAAAQI8/Vgv_3Rlyi5U4rxDHTQkTQjC62Wqhlz55gCLcBGAsYHQ/s1600/Bell-Bottom-movie-release-date-star-cast-poster.jpg"
-              alt="Movie 2"
-            />
-            <h3>Movie 5</h3>
-            <p>
-              Nulla eu commodo nostrud ea pariatur incididunt duis. Exercitation
-              consequat excepteur veniam veniam labore amet.
-            </p>
-          </div>
-          <div class="movie">
-            <img
-              src="https://mlpnk72yciwc.i.optimole.com/cqhiHLc.IIZS~2ef73/w:auto/h:auto/q:75/https://bleedingcool.com/wp-content/uploads/2022/08/AVATAR_RERLS_1SHT_DIGITAL_sRGB_V7.jpg"
-              alt="Movie 3"
-            />
-            <h3>Movie 6</h3>
-            <p>
-              Nulla eu commodo nostrud ea pariatur incididunt duis. Exercitation
-              consequat excepteur veniam veniam labore amet.
-            </p>
-          </div>
+          {% endfor %}
         </div>
       </section>
     </main>

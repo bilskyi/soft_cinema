@@ -3,7 +3,8 @@ from .models import *
 
 
 def home(request):
-    return render(request, 'home/home.html')
+    movie = Movie.objects.all()
+    return render(request, 'home/home.html', {'movie': movie})
 
 #test view
 def movies(request):

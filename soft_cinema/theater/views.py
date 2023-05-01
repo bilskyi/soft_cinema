@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def theater(request):
+    return render(request, 'theater/theater.html')

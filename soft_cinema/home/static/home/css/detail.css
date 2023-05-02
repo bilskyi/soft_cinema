@@ -1,27 +1,21 @@
-/* Reset all styles to default */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    /* CSS styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
 
-/* Set global styles */
-body {
-  font-family: 'Montserrat', sans-serif;
-  background-color: #f1f1f1;
-  line-height: 1.5;
-}
-
-/* Style header */
-nav {
+    /* Style header */
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Style navigation menu */
 nav ul {
+  display: flex;
   list-style: none;
 }
 
@@ -32,97 +26,80 @@ nav li {
 nav a {
   color: #fff;
   text-decoration: none;
-  font-size: 16px;
+  background: linear-gradient(to right, rgb(255, 255, 255), rgb(255, 255, 255)),
+    linear-gradient(
+      to right,
+      rgba(255, 0, 0, 1),
+      rgba(255, 0, 180, 1),
+      rgba(0, 100, 200, 1)
+    );
+  background-size: 100% 1px, 0 1px;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 400ms;
 }
 
 nav a:hover {
-  text-decoration: underline;
+  background-size: 0 1px, 100% 1px;
 }
 
-/* Style main content */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 20px;
-}
-
-.movie-card {
-  display: flex;
-  background-color: #fff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-.movie-card img {
-  width: 35%;
-  object-fit: cover;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-}
-
-.movie-details {
-  padding: 20px;
-  width: 65%;
-}
-
-.movie-details h2 {
-  font-size: 36px;
-  margin-bottom: 10px;
-}
-
-.movie-details p {
-  margin-bottom: 20px;
-  font-size: 18px;
-}
-
-.meta {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 20px;
-}
-
-.age-rating {
-  background-color: #222;
-  color: #fff;
-  padding: 3px 5px;
-  border-radius: 3px;
-  margin-right: 10px;
-}
-
-.duration {
-  margin-right: 10px;
-}
-
-.production {
-  margin-right: 10px;
-}
-
-ul li {
-  list-style: none;
-  margin-bottom: 10px;
-}
-
-ul li strong {
-  font-weight: bold;
-}
-
-/* Style buttons */
-.btn {
-  display: inline-block;
-  background-color: #222;
-  color: #fff;
-  padding: 15px 25px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-size: 16px;
-  margin-right: 10px;
-  transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-  background-color: #111;
-}
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px;
+    }
+    .movie-card {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 60px;
+      border: 2px solid #ccc;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    .movie-card img {
+        margin: 24px;
+        width: 300px;
+        height: 400px;
+        object-fit: cover;
+        border-radius: 3%;
+    }
+    .movie-details {
+      padding: 40px 10px;
+    }
+    .movie-details h2 {
+      font-size: 48px;
+      margin-top: 0px;
+      margin-bottom: 20px;
+    }
+    .movie-details p {
+      font-size: 18px;
+      line-height: 1.2;
+      margin-top: 20px;
+      margin-bottom: 0;
+    }
+    .movie-details .meta {
+      font-size: 18px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    .movie-details .duration {
+      margin-right: 20px;
+    }
+    .movie-details .age-rating {
+      background-color: #f44336;
+      color: #fff;
+      padding: 3px 8px;
+      border-radius: 5px;
+    }
+    .movie-details ul {
+      margin-top: 18px;
+      margin-bottom: 0;
+      padding-left: 40px;
+    }
+    .movie-details ul li {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
     
     /* Media queries */
     @media screen and (max-width: 800px) {

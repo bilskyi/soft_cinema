@@ -1,16 +1,12 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <meta charset="UTF-8">
-  <title>Cinema Information Page</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!DOCTYPE html>
-<html lang="en">
 <head>
+  <link rel="stylesheet" href="{% static 'home/css/detail.css' %}">
   <meta charset="UTF-8">
   <title>Cinema Information Page</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="{% static 'home/css/detail.css' %}">
+  
 </head>
 <body>
   <header>
@@ -18,15 +14,22 @@
   </header>
   <div class="container">
     <div class="movie-card">
-      <img src="{{movie.poster.url}}" alt="{{movie.name}} poster">
+      <img src="{{movie.poster.url}}" alt="Movie Poster">
       <div class="movie-details">
         <h2>{{movie.name}}</h2>
         <p>{{movie.description}}</p>
-        <p class="meta"><span class="age-rating">{{movie.age_limit}}+</span> <span class="duration">{{movie.duration}}</span> <span class="production">{{movie.year}}, {{movie.country}}</span></p>
+        <p class="meta"><span class="age-rating">{{movie.age_limit}}+</span> <span class="duration">{{movie.duration}}</span> <span class="production">{{movie.year}}, {{movie.production}}</span></p>
         <ul>
           <li><strong>Director:</strong> {{movie.director}}</li>
-          <li><strong>Cast:</strong> {{movie.starring}}</li>
-          <li><strong>Genre:</strong> Action, Adventure, Sci-Fi</li>
+          <li><strong>Starring:</strong> {{movie.starring}}</li>
+          
+          <li><strong>Genre:</strong> 
+            {% for category in categories %}
+              {{ category.name }}
+            {% endfor %}</li>
+          <li><strong>Studio:</strong> {{movie.studio}}</li>
+          <li><strong>Director:</strong> {{movie.language}}</li>
+          <li><strong>Director:</strong> {{movie.original_name}}</li>
         </ul>
         <p>You can also add links to trailers, reviews, and showtimes.</p>
       </div>

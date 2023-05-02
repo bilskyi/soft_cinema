@@ -10,13 +10,18 @@ class MovieDetail(DetailView):
     context_object_name = 'movie'
     template_name = 'home/movie_detail.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        categories = self.object.cat.all()
+        context['categories'] = categories
+        return context
+
 class Home(ListView):
     model = Movie
     template_name = 'home/home.html'
     context_object_name = 'movie'
 
-class Movie(DetailView):
+class Movie(ListView):
     model = Movie
     template_name = 'home/movies.html'
     context_object_name = 'movie'
-    slug_url_kwarg = 'movie_slug'

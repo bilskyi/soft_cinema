@@ -3,8 +3,7 @@
   <div class="movie">
     <img src="{{ m.poster.url }}" alt="{{ m.name }}" />
     <h3>
-      <a href="{% url 'movie_detail' m.slug %}" style="color: #fff; text-decoration: none;"
-        >{{m.name}}</a
+      <a href="{% url 'movie_detail' m.slug %}">{{m.name}}</a
       >
     </h3>
   </div>

@@ -1,9 +1,38 @@
 {% load static %}
-<link rel="stylesheet" href="{% static 'home/css/styles.css' %}" />
-{% include 'home/header.html' %}
-  <div class="movie">
-    <img src="{{ movie.poster.url }}" alt="{{ movie.name }}" />
-    <a href="{% url 'home' %}"><h3>{{movie.name}}</h3></a>
-    <p>{{movie.description}}</p>
-
-</div>
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8">
+  <title>Cinema Information Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cinema Information Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'home/css/detail.css' %}">
+</head>
+<body>
+  <header>
+    <h1>Movie Information Page</h1>
+  </header>
+  <div class="container">
+    <div class="movie-card">
+      <img src="https://dummyimage.com/300x400/000/fff" alt="Movie Poster">
+      <div class="movie-details">
+        <h2>Movie name</h2>
+        <p>Description of the movie goes here. You can add more information, such as the cast, director, genre, and rating.</p>
+        <p class="meta"><span class="age-rating">PG-13</span> <span class="duration">120 mins</span> <span class="production">2022, USA</span></p>
+        <ul>
+          <li><strong>Director:</strong> John Doe</li>
+          <li><strong>Cast:</strong> Jane Smith, Bob Johnson, Tom Green</li>
+          <li><strong>Genre:</strong> Action, Adventure, Sci-Fi</li>
+          <li><strong>Rating:</strong> 8.5/10 (IMDb)</li>
+        </ul>
+        <p>You can also add links to trailers, reviews, and showtimes.</p>
+      </div>
+    </div>
+    <!-- Add more movie cards as needed -->
+  </div>
+</body>
+</html>

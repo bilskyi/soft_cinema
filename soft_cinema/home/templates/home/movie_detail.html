@@ -3,7 +3,6 @@
 <html lang="en">
 <head>
   <link rel="stylesheet" href="{% static 'home/css/detail.css' %}">
-  
   <meta charset="UTF-8">
   <title>Cinema Information Page</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,6 +13,7 @@
     />
 </head>
 <body>
+  
   <nav>
     {% include 'home/header.html' %}
   </nav>
@@ -35,7 +35,7 @@
           <li><strong>Studio:</strong> {{movie.studio}}</li>
           <li><strong>Language:</strong> {{movie.language}}</li>
           <li><strong>Original Name:</strong> {{movie.original_name}}</li>
-          <li><strong>Showtime</strong> {{movie.start_rental|date:"d.m.Y"}}  - {{movie.end_rental|date:"d.m.Y"}}</li>
+          <li><strong>Showtime:</strong> {{movie.start_rental|date:"d.m.Y"}}  - {{movie.end_rental|date:"d.m.Y"}}</li>
         </ul>
       </div>
     </div>

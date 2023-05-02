@@ -3,15 +3,17 @@
 <html lang="en">
 <head>
   <link rel="stylesheet" href="{% static 'home/css/detail.css' %}">
+  
   <meta charset="UTF-8">
   <title>Cinema Information Page</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
 </head>
 <body>
-  <header>
-    <h1>Movie Information Page</h1>
-  </header>
+  <nav>
+    {% include 'home/header.html' %}
+  </nav>
+  
   <div class="container">
     <div class="movie-card">
       <img src="{{movie.poster.url}}" alt="Movie Poster">
@@ -22,7 +24,6 @@
         <ul>
           <li><strong>Director:</strong> {{movie.director}}</li>
           <li><strong>Starring:</strong> {{movie.starring}}</li>
-          
           <li><strong>Genre:</strong> 
             {% for category in categories %}
               {{ category.name }}

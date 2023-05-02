@@ -24,6 +24,8 @@
   .movie-card img {
     width: 60%;
     height: auto;
+    flex: 0 0 100%;
+    
   }
   .movie-details {
     padding: 40px 10px;

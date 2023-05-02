@@ -18,16 +18,15 @@
   </header>
   <div class="container">
     <div class="movie-card">
-      <img src="https://dummyimage.com/300x400/000/fff" alt="Movie Poster">
+      <img src="{{movie.poster.url}}" alt="{{movie.name}} poster">
       <div class="movie-details">
-        <h2>Movie name</h2>
-        <p>Description of the movie goes here. You can add more information, such as the cast, director, genre, and rating.</p>
-        <p class="meta"><span class="age-rating">PG-13</span> <span class="duration">120 mins</span> <span class="production">2022, USA</span></p>
+        <h2>{{movie.name}}</h2>
+        <p>{{movie.description}}</p>
+        <p class="meta"><span class="age-rating">{{movie.age_limit}}+</span> <span class="duration">{{movie.duration}}</span> <span class="production">{{movie.year}}, {{movie.country}}</span></p>
         <ul>
-          <li><strong>Director:</strong> John Doe</li>
-          <li><strong>Cast:</strong> Jane Smith, Bob Johnson, Tom Green</li>
+          <li><strong>Director:</strong> {{movie.director}}</li>
+          <li><strong>Cast:</strong> {{movie.starring}}</li>
           <li><strong>Genre:</strong> Action, Adventure, Sci-Fi</li>
-          <li><strong>Rating:</strong> 8.5/10 (IMDb)</li>
         </ul>
         <p>You can also add links to trailers, reviews, and showtimes.</p>
       </div>

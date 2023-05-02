@@ -15,8 +15,8 @@ class Home(ListView):
     template_name = 'home/home.html'
     context_object_name = 'movie'
 
-class Movie(ListView):
+class Movie(DetailView):
     model = Movie
     template_name = 'home/movies.html'
     context_object_name = 'movie'
-
+    slug_url_kwarg = 'movie_slug'

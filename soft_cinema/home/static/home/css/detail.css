@@ -218,8 +218,8 @@ nav a:hover {
         margin: 1.5em;
         width: 15.8em;
         height: 4.5em;
-        background-color: #2f4368;
-        color: #fff;
+        background-color: #ffff;
+        color: #222;
         border: none;
         border-radius: 3%;
         font-size: 16px;
@@ -230,10 +230,13 @@ nav a:hover {
         transition: background-color 0.3s ease;
       }  
       .watch-trailer:hover {
-        background-color: #0055CC;
+        background-color: #0a0a1a;
+        color: #ff0e5e;
+        transition: background-color 0.3s ease;
       }
       .movie-details {
         padding: 20px;
+        margin-top: 8em;
       }
       .movie-details h2 {
         font-size: 30px;

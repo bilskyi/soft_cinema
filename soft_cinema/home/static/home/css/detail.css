@@ -213,23 +213,22 @@ nav a:hover {
         margin: 0 auto;
         width: 100%;
         height: auto;
+        position: relative;
       }
       .watch-trailer {
-        display: block;
-        margin: 1.5em auto;
-        width: 15.8em;
+        position: absolute;
+        margin: 0 auto;
+        width: 80%;
         height: 4.5em;
         background-color: #ffff;
         color: #222;
         border: none;
-        border-radius: 3%;
         font-size: 16px;
         font-weight: bold;
         justify-content: center;
         cursor: pointer;
         transition: background-color 0.3s ease;
-      }
-      
+      }  
       .watch-trailer:hover {
         background-color: #0a0a1a;
         color: #ff0e5e;
@@ -237,7 +236,7 @@ nav a:hover {
       }
       .movie-details {
         padding: 20px;
-        margin-top: 8em;
+        margin-top: 6em;
       }
       .movie-details h2 {
         font-size: 30px;

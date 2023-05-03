@@ -18,9 +18,8 @@
 
   <div class="container">
     <div class="movie-card">
-      
-      <img src="{{movie.poster.url}}" alt="Movie Poster">
-
+      <img src="{{movie.poster.url}}" alt="Movie Poster {{movie.name}}">
+      <button class="watch-trailer">Watch Trailer</button>
       <div class="movie-details">
         <h2>{{movie.name}}</h2>
         <p>{{movie.description}}</p>

@@ -215,7 +215,8 @@ nav a:hover {
         height: auto;
       }
       .watch-trailer {
-        margin: 1.5em;
+        display: block;
+        margin: 1.5em auto;
         width: 15.8em;
         height: 4.5em;
         background-color: #ffff;
@@ -226,9 +227,9 @@ nav a:hover {
         font-weight: bold;
         justify-content: center;
         cursor: pointer;
-        
         transition: background-color 0.3s ease;
-      }  
+      }
+      
       .watch-trailer:hover {
         background-color: #0a0a1a;
         color: #ff0e5e;

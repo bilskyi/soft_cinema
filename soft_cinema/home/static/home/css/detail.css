@@ -78,10 +78,10 @@ nav a:hover {
     }
     .watch-trailer {
       position: absolute;
-      margin: 24px;
-      width: 272px;
+      margin: 1.5em;
+      width: 15.8em;
       height: 4.5em;
-      background-color: #103829;
+      background-color: #2f4368;
       color: #fff;
       border: none;
       border-radius: 3%;
@@ -137,12 +137,33 @@ nav a:hover {
     /* Media queries */
     @media screen and (max-width: 800px) {
       .movie-card {
-        flex-direction: row;
+        display: contents;
+        margin-bottom: 60px;
+        border: 2px solid #ccc;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
       }
       .movie-card img {
         flex: 0 0 400px;
         width: 400px;
         height: auto;
+      }
+      .watch-trailer {
+        margin: 1.5em;
+        width: 15.8em;
+        height: 4.5em;
+        background-color: #2f4368;
+        color: #fff;
+        border: none;
+        border-radius: 3%;
+        font-size: 16px;
+        font-weight: bold;
+        justify-content: center;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      
+      .watch-trailer:hover {
+        background-color: #0055CC;
       }
       .movie-details {
         flex: 1;
@@ -167,61 +188,71 @@ nav a:hover {
       }
     }
     
-    /* Additional styles */
-    .movie-card img {
-      margin-right: 40px;
-    }
-    .movie-details p.description {
-      font-size: 20px;
-      margin-top: 10px;
-      margin-bottom: 30px;
-    }
-/* CSS styles for mobile */
-@media screen and (max-width: 480px) {
-  header {
-    padding: 10px;
-  }
-
-  header h1 {
-    font-size: 24px;
-  }
-  nav li {
-    margin-left: 20px;
-    font-size: 12px;
-  }
-  .container {
-    padding: 20px;
-    width: 100%;
-    max-width: 100%;
-  }
-  .movie-card {
-    flex-direction: column;
-  }
-  .movie-card img {
-    margin: 0 auto;
-    width: 100%;
-    height: auto;
-  }
-  .movie-details {
-    padding: 20px;
-  }
-  .movie-details h2 {
-    font-size: 30px;
-    margin-bottom: 10px;
-  }
-  .movie-details p {
-    font-size: 16px;
-    margin-top: 10px;
-    margin-bottom: 0;
-  }
-  .movie-details .meta {
-    font-size: 16px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-  .movie-details .duration {
-    margin: 0 10px;
-  }
+    /* CSS styles for mobile */
+    @media screen and (max-width: 480px) {
+      header {
+        padding: 10px;
+      }
+    
+      header h1 {
+        font-size: 24px;
+      }
+      nav li {
+        margin-left: 20px;
+        font-size: 12px;
+      }
+      .container {
+        padding: 20px;
+        width: 100%;
+        max-width: 100%;
+      }
+      .movie-card {
+        display: block;
+      }
+      .movie-card img {
+        margin: 0 auto;
+        width: 100%;
+        height: auto;
+      }
+      .watch-trailer {
+        margin: 1.5em;
+        width: 15.8em;
+        height: 4.5em;
+        background-color: #2f4368;
+        color: #fff;
+        border: none;
+        border-radius: 3%;
+        font-size: 16px;
+        font-weight: bold;
+        justify-content: center;
+        cursor: pointer;
+        
+        transition: background-color 0.3s ease;
+      }  
+      .watch-trailer:hover {
+        background-color: #0055CC;
+      }
+      .movie-details {
+        padding: 20px;
+      }
+      .movie-details h2 {
+        font-size: 30px;
+        margin-bottom: 10px;
+      }
+      .movie-details p {
+        font-size: 16px;
+        margin-top: 10px;
+        margin-bottom: 0;
+      }
+      .movie-details .meta {
+        font-size: 16px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      .movie-details .duration {
+       
+        margin: 0 10px;
+      }
   .movie-details .age-rating {
     font-size: 12px;
     padding: 2px 6px;

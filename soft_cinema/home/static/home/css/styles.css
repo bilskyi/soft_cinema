@@ -20,6 +20,11 @@ header {
   padding: 20px;
 }
 
+
+header a{
+  color: #fff;
+  text-decoration: none;
+}
 /* Style navigation menu */
 nav ul {
   display: flex;
@@ -195,6 +200,7 @@ footer p {
   header {
     flex-direction: column;
     text-align: center;
+    max-width: 100%;
   }
 
   nav ul {

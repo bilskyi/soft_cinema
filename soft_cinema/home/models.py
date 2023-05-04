@@ -5,6 +5,7 @@ class Movie(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, unique=True, db_index=True)
     poster = models.ImageField(upload_to='posters/')
+    trailer = models.CharField(max_length=255, null=True)
     age_limit = models.PositiveIntegerField()
     year = models.PositiveIntegerField() #year of production
     original_name = models.CharField(max_length=255)

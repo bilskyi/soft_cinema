@@ -77,6 +77,9 @@ nav a:hover {
         display: block;
     }
     .watch-trailer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       position: absolute;
       margin: 1.5em;
       width: 15.8em;
@@ -86,8 +89,7 @@ nav a:hover {
       border: none;
       border-radius: 3%;
       font-size: 16px;
-      font-weight: bold;
-      justify-content: center;
+      font-weight:bolder;
       cursor: pointer;
       margin-top: 28em;
       transition: background-color 0.3s ease;
@@ -167,6 +169,7 @@ nav a:hover {
       }
       .watch-trailer {
         position: absolute;
+        display: flex;
         margin: 0 auto;
         width: 80%;
         height: 4.5em;

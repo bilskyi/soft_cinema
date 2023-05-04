@@ -2,7 +2,7 @@ from typing import Any, Dict
 from django.views.generic import ListView, DetailView
 from django.shortcuts import render
 from .models import *
-
+from .utils import MovieList
 
 class MovieDetail(DetailView):
     model = Movie
@@ -16,12 +16,8 @@ class MovieDetail(DetailView):
         context['categories'] = categories
         return context
 
-class Home(ListView):
-    model = Movie
-    template_name = 'home/home.html'
-    context_object_name = 'movie'
+class Home(MovieList, ListView):
+    pass
 
-class Movie(ListView):
-    model = Movie
+class Movie(MovieList, ListView):
     template_name = 'home/movies.html'
-    context_object_name = 'movie'

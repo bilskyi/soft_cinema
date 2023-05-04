@@ -11,11 +11,11 @@
   <body>
     {% include 'home/header.html' %}
     <section class="featured">
-        <h2>Now Playing</h2>
-
-        <!-- Add:
-          Advance Tickets
-        Coming soon -->
+        <div class="stages">
+          <h2><a href="#">Now Playing</a></h2>
+          <h2><a href="#">Advance Ticket</a></h2>
+          <h2><a href="#">Coming Soon</a></h2>
+        </div>
           {% include 'home/movie_list.html' %}
         </section>  
   </body>

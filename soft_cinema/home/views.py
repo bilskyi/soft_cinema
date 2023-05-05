@@ -21,16 +21,39 @@ class Home(MovieList, ListView):
 
 class Movie(MovieList, ListView):
     template_name = 'home/movies.html'
-    queryset = {'states'}
-
-
-class StateList(DetailView):
-    model = Movie
-    template_name = 'home/movies.html'
-    context_object_name = 'movie'
-
+    
     def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
         context = super().get_context_data(**kwargs)
-        states = self.object.state.all()
+        states = State.objects.all()
         context['states'] = states
         return context
+
+# class StateList(DetailView):
+#     model = Movie
+#     template_name = 'home/movies.html'
+#     context_object_name = 'movie'
+#     slug_url_kwarg = 'state_slug'
+
+
+#     def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
+#         context = super().get_context_data(**kwargs)
+#         states = self.object.state.all()
+#         #states = self.state.slug.all()
+#         context['states'] = states
+#         return context
+
+class StateList(ListView):
+    model = State
+    template_name = 'home/movies.html'
+    context_object_name = 'movies'
+
+    
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        state_slug = self.kwargs['state_slug']
+        states = State.objects.all()
+        context['states'] = states
+        context['stage'] = self.model.objects.get(slug=state_slug)
+        return context
+

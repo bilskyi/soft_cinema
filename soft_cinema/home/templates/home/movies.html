@@ -13,11 +13,8 @@
     <section class="featured">
         <div class="stages">
           {% for state in states %}
-             <h2><a href="#">{{ state.stage }}</a></h2>
+             <h2><a href="{% url 'state_list' state.slug %}">{{ state.stage }}</a></h2>
             {% endfor %}
-          <!-- <h2><a href="#">Now Playing</a></h2>
-          <h2><a href="#">Advance Ticket</a></h2>
-          <h2><a href="#">Coming Soon</a></h2> -->
         </div>
           {% include 'home/movie_list.html' %}
         </section>  

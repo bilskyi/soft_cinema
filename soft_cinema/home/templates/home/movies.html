@@ -12,6 +12,7 @@
     {% include 'home/header.html' %}
     <section class="featured">
         <div class="stages">
+          <h2><a href="{% url 'movies' %}">All</a></h2>
           {% for state in states %}
              <h2><a href="{% url 'state_list' state.slug %}">{{ state.stage }}</a></h2>
             {% endfor %}

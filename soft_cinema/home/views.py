@@ -2,7 +2,7 @@ from typing import Any, Dict
 from django.views.generic import ListView, DetailView
 from django.shortcuts import render
 from .models import *
-from .utils import MovieList
+from .utils import ContextMixin, MovieList
 
 class MovieDetail(DetailView):
     model = Movie
@@ -19,17 +19,12 @@ class MovieDetail(DetailView):
 class Home(MovieList, ListView):
     pass
 
-class Movie(MovieList, ListView):
+class Movie(MovieList, ContextMixin, ListView):
     template_name = 'home/movies.html'
     
-    def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
-        context = super().get_context_data(**kwargs)
-        states = State.objects.all()
-        context['states'] = states
-        return context
 
 
-class StateList(ListView):
+class StateList(ContextMixin, ListView):
     model = State
     template_name = 'home/movies.html'
     context_object_name = 'movie'
@@ -41,8 +36,6 @@ class StateList(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         state_slug = self.kwargs['state_slug']
-        states = State.objects.all()
-        context['states'] = states
         context['stage'] = self.model.objects.get(slug=state_slug)
         return context
 

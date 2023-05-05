@@ -84,10 +84,10 @@ nav a:hover {
       margin: 1.5em;
       width: 15.8em;
       height: 4.5em;
-      background-color: #ffff;
+      background-color: #0e0e28;
       text-decoration: none;
-      color: #222;
-      border: none;
+      color: #f1dded;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;
       border-radius: 3%;
       font-size: 16px;
       font-weight:bolder;
@@ -138,8 +138,24 @@ nav a:hover {
       margin-bottom: 10px;
       font-size: 20px;
     }
+
+    .buy-ticket {
+      display:grid;
+      margin: 1em;
+      text-align: center;
+      font-size: 28px;
+      color: #fff;
+      background-color: #e23c30;
+      text-decoration: none;
+      border-radius: 3%;
+      padding: 0.5em;
+    }
     
-    
+    .buy-ticket:hover {
+      background-color: #e12626;
+      color: #ffffff;
+      transition: background-color 0.3s ease;
+    }
     
     /* CSS styles for mobile */
     @media screen and (max-width: 480px) {

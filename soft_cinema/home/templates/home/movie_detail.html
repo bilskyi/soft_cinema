@@ -36,6 +36,7 @@
           <li><strong>Original Name:</strong> {{movie.original_name}}</li>
           <li><strong>Showtime:</strong> {{movie.start_rental|date:"d.m.Y"}}  - {{movie.end_rental|date:"d.m.Y"}}</li>
         </ul>
+        <h2><a href="{% url 'theater' %}" class="buy-ticket">Buy a Ticket</a></h2>
       </div>
     </div>
     <!-- Add more movie cards as needed -->

@@ -22,21 +22,8 @@
       <a href="{{movie.trailer}}" class="watch-trailer">Watch Trailer</a>
       <div class="movie-details">
         <h2>{{movie.name}}</h2>
-        <p>{{movie.description}}</p>
         <p class="meta"><span class="age-rating">{{movie.age_limit}}+</span>  <span class="duration">{{movie.duration}}</span> <span class="production">{{movie.year}}, {{movie.production}}</span></p>
-        <ul>
-          <li><strong>Director:</strong> {{movie.director}}</li>
-          <li><strong>Starring:</strong> {{movie.starring}}</li>
-          <li><strong>Genre:</strong> 
-            {% for category in categories %}
-              {{ category.name }}
-            {% endfor %}</li>
-          <li><strong>Studio:</strong> {{movie.studio}}</li>
-          <li><strong>Language:</strong> {{movie.language}}</li>
-          <li><strong>Original Name:</strong> {{movie.original_name}}</li>
-          <li><strong>Showtime:</strong> {{movie.start_rental|date:"d.m.Y"}}  - {{movie.end_rental|date:"d.m.Y"}}</li>
-        </ul>
-        <h2><a href="{% url 'buy-ticket' movie.slug %}" class="buy-ticket">Buy a Ticket</a></h2>
+        {% include 'theater/theater.html' %}
       </div>
     </div>
     <!-- Add more movie cards as needed -->

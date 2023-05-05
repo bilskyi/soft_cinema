@@ -1,10 +1,11 @@
 <div class="movie-list">
   {% for m in movie %}
   <div class="movie">
-    <img src="{{ m.poster.url }}" alt="{{ m.name }}" />
+    <a href="{% url 'movie_detail' m.slug %}">
+      <img src="{{ m.poster.url }}" alt="{{ m.name }}" />
+    </a>
     <h3>
-      <a href="{% url 'movie_detail' m.slug %}">{{m.name}}</a
-      >
+      <a href="{% url 'movie_detail' m.slug %}">{{m.name}}</a>
     </h3>
   </div>
   {% endfor %}

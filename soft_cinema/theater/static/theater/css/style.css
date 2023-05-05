@@ -45,7 +45,7 @@ border-radius: 15%;
 
 .seat.selected {
 background-color: #a055da;
-transition: background-color 0.9s ease-in-out;
+transition: background-color 0.3s ease-in-out;
 }
 
 .seat.occupied {

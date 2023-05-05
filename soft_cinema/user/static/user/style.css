@@ -8,8 +8,16 @@ body {
 	background-color: #1b1b1b;
 	color: #fff;
 	font-family: 'Roboto', sans-serif;
-	font-size: 16px;
+	font-size: 14px;
 	line-height: 1.5;
+}
+
+a {
+	text-decoration: none;
+	font-size: 1.3em;
+	color: #dddddd;
+	float: right;
+	margin-top: 8px;
 }
 
 .container {
@@ -56,6 +64,8 @@ input[type=text], input[type=email], input[type=password] {
 	padding: 10px;
 	width: 100%;
 }
+
+
 
 .btn-submit {
 	background-color: #ff5733;

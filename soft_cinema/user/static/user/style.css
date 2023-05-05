@@ -1,0 +1,41 @@
+.container {
+	max-width: 500px;
+	margin: auto;
+	padding: 20px;
+}
+
+h1 {
+	text-align: center;
+}
+
+form {
+	background-color: #f2f2f2;
+	padding: 20px;
+	border-radius: 5px;
+}
+
+label {
+	display: block;
+	margin-bottom: 5px;
+}
+
+input[type=text], input[type=email], input[type=password] {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 15px;
+	border: none;
+	border-radius: 5px;
+}
+
+button[type=submit] {
+	background-color: #4CAF50;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+button[type=submit]:hover {
+	background-color: #45a049;
+}

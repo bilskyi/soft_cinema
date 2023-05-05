@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>User Registration Form</title>
+    <link rel="stylesheet" href="{% static 'user/style.css' %}">
+  </head>
+<body>
+	<div class="container">
+		<div class="form">
+			<h2>Registration Form</h2>
+			<form method="post" > 
+                {% csrf_token %}
+				{% block fields %}
+                {% endblock %}
+			</form>
+		</div>
+	</div>
+</body>
+</html>

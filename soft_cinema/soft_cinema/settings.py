@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home.apps.HomeConfig',
     'theater.apps.TheaterConfig',
+    'user.apps.UserConfig',
 ]
 
 MIDDLEWARE = [

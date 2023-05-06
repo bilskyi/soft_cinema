@@ -1,3 +1,5 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'home/css/dropdown.css' %}"> 
 <header>
   <h1><a href="{% url 'home' %}">Cinema Site</a></h1>
   <nav>
@@ -11,7 +13,7 @@
           <ul class="dropdown-menu">
             <li><a href="#">Profile</a></li>
             <li><a href="#">Settings</a></li>
-            <li><a href="{% url 'home' %}">Log Out</a></li>
+            <li><a href="{% url 'logout' %}">Log Out</a></li>
           </ul>
         </li>
       {% else %}
@@ -43,53 +45,3 @@
     });
   });
 </script>
-
-<style>
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-
-  .dropdown-toggle {
-    padding: 8px 16px;
-    text-decoration: none;
-    color: #fff;
-    border-radius: 4px;
-    background-color: #333;
-    cursor: pointer;
-  }
-
-  .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    z-index: 1;
-    display: none;
-    min-width: 160px;
-    padding: 8px 0;
-    margin: 2px 0 0;
-    font-size: 14px;
-    text-align: left;
-    background-color: #222;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 0 6px 12px rgba(0,0,0,.175);
-  }
-
-  .dropdown-menu li {
-    display: block;
-  }
-
-  .dropdown-menu li a {
-    display: block;
-    padding: 3px 20px;
-    clear: both;
-    font-weight: 400;
-    line-height: 1.42857143;
-    white-space: nowrap;
-  }
-
-  .dropdown-menu.show {
-    display: block;
-  }
-</style>

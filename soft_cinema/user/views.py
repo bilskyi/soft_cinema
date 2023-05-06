@@ -2,7 +2,7 @@ from typing import Any, Dict
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from .forms import LoginUserForm, UserRegisterForm
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.contrib.auth.views import LoginView
 
 
@@ -28,3 +28,8 @@ class LoginUser(LoginView):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Authentication Form'
         return context
+    
+
+def logout_user(request):
+    logout(request)
+    return redirect('home')

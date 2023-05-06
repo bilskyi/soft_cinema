@@ -7,7 +7,7 @@
       <li><a href="{% url 'theater' %}">Theaters</a></li>
       {% if user.is_authenticated %}
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle">{{user.username}}</a>
+          <a href="#" id="dropdownMenu" class="dropdown-toggle">{{user.username}}</a>
           <ul class="dropdown-menu">
             <li><a href="#">Profile</a></li>
             <li><a href="#">Settings</a></li>
@@ -22,6 +22,28 @@
   </nav>
 </header>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var dropdownMenu = document.querySelector('#dropdownMenu');
+    var menuItems = document.querySelectorAll('.dropdown-menu li');
+
+    dropdownMenu.addEventListener('click', function(event) {
+      event.stopPropagation();
+      document.querySelector('.dropdown-menu').classList.toggle('show');
+    });
+
+    menuItems.forEach(function(item) {
+      item.addEventListener('click', function(event) {
+        event.stopPropagation();
+      });
+    });
+
+    document.addEventListener('click', function() {
+      document.querySelector('.dropdown-menu').classList.remove('show');
+    });
+  });
+</script>
+
 <style>
   .dropdown {
     position: relative;
@@ -34,6 +56,7 @@
     color: #fff;
     border-radius: 4px;
     background-color: #333;
+    cursor: pointer;
   }
 
   .dropdown-menu {
@@ -66,22 +89,7 @@
     white-space: nowrap;
   }
 
-
-  .dropdown:hover .dropdown-menu {
+  .dropdown-menu.show {
     display: block;
   }
 </style>
-
-<script>
-  const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-
-  dropdownToggles.forEach(function(toggle) {
-    toggle.addEventListener('click', function(e) {
-      e.preventDefault();
-      const parentLi = toggle.parentNode;
-      const dropdownMenu = parentLi.querySelector('.dropdown-menu');
-      parentLi.classList.toggle('open');
-      dropdownMenu.classList.toggle('show');
-    });
-  });
-</script>

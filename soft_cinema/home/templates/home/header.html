@@ -6,10 +6,82 @@
       <li><a href="{% url 'movies' %}">Movies</a></li>
       <li><a href="{% url 'theater' %}">Theaters</a></li>
       {% if user.is_authenticated %}
-        <li><a href="{% url 'home' %}">{{user.username}}</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">{{user.username}}</a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="{% url 'home' %}">Log Out</a></li>
+          </ul>
+        </li>
       {% else %}
-        <li><a href="{% url 'register' %}">Sing In | Sign Up</a></li>
+        <li><a href="{% url 'login' %}">Log In</a></li>
+        <li><a href="{% url 'register' %}">Sign Up</a></li>
       {% endif %}
     </ul>
   </nav>
 </header>
+
+<style>
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-toggle {
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 4px;
+    background-color: #333;
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 1;
+    display: none;
+    min-width: 160px;
+    padding: 8px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    background-color: #222;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+  }
+
+  .dropdown-menu li {
+    display: block;
+  }
+
+  .dropdown-menu li a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    white-space: nowrap;
+  }
+
+
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+</style>
+
+<script>
+  const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+
+  dropdownToggles.forEach(function(toggle) {
+    toggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      const parentLi = toggle.parentNode;
+      const dropdownMenu = parentLi.querySelector('.dropdown-menu');
+      parentLi.classList.toggle('open');
+      dropdownMenu.classList.toggle('show');
+    });
+  });
+</script>

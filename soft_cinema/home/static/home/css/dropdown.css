@@ -37,6 +37,7 @@
     display: block;
     padding: 3px 20px;
     clear: both;
+    text-decoration: none;
     font-weight: 400;
     line-height: 1.42857143;
     white-space: nowrap;
@@ -45,3 +46,26 @@
   .dropdown-menu.show {
     display: block;
   }
+
+
+  /* Login - Register  */
+
+.login_register {
+  display: flex;
+  border: 3px solid #9c5353;
+  border-radius: 4px;
+  padding: 0 10px;
+}
+
+.login_register a {
+  margin: 0 5px;
+  text-decoration: none;
+}
+
+.login_register a:first-child {
+  margin-left: 0;
+}
+
+.login_register a:last-child {
+  margin-right: 0;
+}

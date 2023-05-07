@@ -1,5 +1,5 @@
 {% load static %}
-<link rel="stylesheet" href="{% static 'home/css/dropdown.css' %}"> 
+<link rel="stylesheet" href="{% static 'home/css/dropdown.css' %}">
 <header>
   <h1><a href="{% url 'home' %}">Cinema Site</a></h1>
   <nav>
@@ -17,8 +17,12 @@
           </ul>
         </li>
       {% else %}
-        <li><a href="{% url 'login' %}">Log In</a></li>
-        <li><a href="{% url 'register' %}">Sign Up</a></li>
+        <li>
+          <div class="login_register">
+            <a href="{% url 'login' %}">Log In</a>
+            <a href="{% url 'register' %}">Sign Up</a>
+          </div>
+        </li>
       {% endif %}
     </ul>
   </nav>

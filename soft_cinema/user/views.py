@@ -38,6 +38,5 @@ def logout_user(request):
     return redirect('home')
 
 @login_required
-def profile(request):
-    user = Profile.objects.all()
-    return render(request, 'user/profile.html', {'user': user})
+def profile(request, username_slug):
+    return render(request, 'user/profile.html')

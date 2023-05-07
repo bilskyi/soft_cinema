@@ -19,7 +19,7 @@
     z-index: 1;
     display: none;
     min-width: 160px;
-    padding: 8px 0;
+    padding: 10px 0;
     margin: 2px 0 0;
     font-size: 14px;
     text-align: left;
@@ -52,14 +52,15 @@
 
 .login_register {
   display: flex;
-  border: 3px solid #9c5353;
-  border-radius: 4px;
-  padding: 0 10px;
+  border: 2px solid #ccc;
+  border-radius: 15px;
+  padding: 10px;
 }
 
 .login_register a {
   margin: 0 5px;
   text-decoration: none;
+  background: none;
 }
 
 .login_register a:first-child {

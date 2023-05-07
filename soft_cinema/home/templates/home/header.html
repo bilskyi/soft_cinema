@@ -4,9 +4,9 @@
   <h1><a href="{% url 'home' %}">Cinema Site</a></h1>
   <nav>
     <ul>
-      <li><a href="{% url 'home' %}">Home</a></li>
-      <li><a href="{% url 'movies' %}">Movies</a></li>
-      <li><a href="{% url 'theater' %}">Theaters</a></li>
+      <li class="padding-links" ><a href="{% url 'home' %}">Home</a></li>
+      <li class="padding-links"><a href="{% url 'movies' %}">Movies</a></li>
+      <li class="padding-links"><a href="{% url 'theater' %}">Theaters</a></li>
       {% if user.is_authenticated %}
         <li class="dropdown">
           <a href="#" id="dropdownMenu" class="dropdown-toggle">{{user.username}}</a>

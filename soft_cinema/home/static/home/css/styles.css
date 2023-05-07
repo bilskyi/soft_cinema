@@ -17,7 +17,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 30px;
 }
 
 
@@ -33,6 +33,10 @@ nav ul {
 
 nav li {
   margin-left: 40px;
+}
+
+.padding-links {
+  padding-top: 10px;
 }
 
 nav a {
@@ -54,7 +58,6 @@ nav a {
 nav a:hover {
   background-size: 0 1px, 100% 1px;
 }
-
 
 /* Style main content */
 main {

@@ -8,9 +8,9 @@
     padding: 8px 16px;
     text-decoration: none;
     color: #fff;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
     border-radius: 15px;
-    background: none;
+    padding: 10px;
     cursor: pointer;
   }
 

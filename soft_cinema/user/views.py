@@ -1,9 +1,12 @@
 from typing import Any, Dict
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
+
+from .models import Profile
 from .forms import LoginUserForm, UserRegisterForm
 from django.contrib.auth import login, logout
 from django.contrib.auth.views import LoginView
+from django.contrib.auth.decorators import login_required
 
 
 def register(request):
@@ -33,3 +36,8 @@ class LoginUser(LoginView):
 def logout_user(request):
     logout(request)
     return redirect('home')
+
+@login_required
+def profile(request):
+    user = Profile.objects.all()
+    return render(request, 'user/profile.html', {'user': user})

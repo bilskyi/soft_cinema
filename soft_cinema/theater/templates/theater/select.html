@@ -1,6 +1,6 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'theater/css/style.css' %}">
-<form action="buy_ticket" method="post">
+<form method="post">
   {% csrf_token %}
   <div class="container">
     <div class="screen"></div>
@@ -8,7 +8,7 @@
     <div class="row">
       {{r}}
       {% for s in seat %}
-      <div class="seat">{{s}}</div>
+      <input type="checkbox" name="{{s}}" id="{{s}}" class="seat">
       {% endfor %}
     </div>
     {% endfor %}

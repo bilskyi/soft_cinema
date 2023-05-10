@@ -26,3 +26,22 @@ class BuyTicket(DetailView):
         context['row'] = Seat.objects.values('row').distinct()
         context['seat'] = Seat.objects.values('seat').distinct()
         return context
+
+
+def buy_ticket(request, movie_slug):
+    movie = Movie.objects.filter(slug=movie_slug)
+    form = SeatForm
+    row = Seat.objects.values('row').distinct()
+    seat = Seat.objects.values('seat').distinct()
+    context = {
+        'movie': movie,
+        'form': form,
+        'row': row,
+        'seat': seat,
+    }
+    if request.method == 'POST':
+        form = SeatForm(request.POST)    
+        if form.is_valid():
+            form.save()
+            return redirect('movies')
+    return render(request, 'theater/buy_ticket.html', context=context)

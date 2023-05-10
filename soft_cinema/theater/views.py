@@ -23,6 +23,6 @@ class BuyTicket(DetailView):
     def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
         context = super().get_context_data(**kwargs)
         context['form'] = SeatForm
-        context['row'] = Seat.objects.filter(row='A')
-        context['seat'] = Seat.objects.filter(id__lte=8)
+        context['row'] = Seat.objects.values('row').distinct()
+        context['seat'] = Seat.objects.values('seat').distinct()
         return context

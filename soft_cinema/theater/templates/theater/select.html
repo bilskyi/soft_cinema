@@ -6,8 +6,9 @@
     <div class="screen"></div>
     {% for r in row %}
     <div class="row">
+      {{r}}
       {% for s in seat %}
-      <div class="seat"></div>
+      <div class="seat">{{s}}</div>
       {% endfor %}
     </div>
     {% endfor %}

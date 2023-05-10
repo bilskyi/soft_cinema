@@ -1,28 +1,16 @@
-{% if seats %}
-    <h3>Choose your seat:</h3>
-    <form method="POST">
-        {% csrf_token %}
-        <input type="hidden" name="movie_id" value="{{ movie.id }}">
-        <div class="seating-arrangement">
-            {% for seat in seats %}
-                {% if seat.seat_number == 1 %}
-                    <div class="row">
-                        <span class="row-label">{{ seat.row }}</span>
-                {% endif %}
-                {% if seat.seat_number == 6 %}
-                    </div>
-                    <div class="row">
-                        <span class="row-label">{{ seat.row }}</span>
-                {% endif %}
-                {% if seat.is_booked %}
-                    <input type="checkbox" name="seat" value="{{ seat.id }}" disabled>
-                {% else %}
-                    <input type="checkbox" name="seat" value="{{ seat.id }}">
-                {% endif %}
-            {% endfor %}
-            </div>
-        <input type="submit" value="Book Now">
-    </form>
-{% else %}
-    <p>Sorry, all seats are booked.</p>
-{% endif %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'theater/css/style.css' %}">
+<form action="buy_ticket" method="post">
+  {% csrf_token %}
+  <div class="container">
+    <div class="screen"></div>
+    {% for r in row %}
+    <div class="row">
+      {% for s in seat %}
+      <div class="seat"></div>
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+  <button type="submit">Clock</button>
+</form>

@@ -11,16 +11,16 @@ def theater(request):
 
 def buy_ticket(request, movie_slug):
     movie = Movie.objects.get(slug=movie_slug)
-    seats = Seat.objects.values('seat_number')
+    seats = Seat.objects.filter(is_available=True)
     if request.method == 'POST':
         form = SeatForm(request.POST)
         if form.is_valid():
-            seat = form.cleaned_data['seat']
-            seat.is_available = False
-            seat.movie = movie
-            seat.save()
+            selected_seats = form.cleaned_data['seat']
+            for seat in selected_seats:
+                seat.is_available = False
+                seat.movie = movie
+                seat.save()
             return redirect('movies')
-        
     else:
         form = SeatForm()
     context = {

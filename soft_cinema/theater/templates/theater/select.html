@@ -5,13 +5,14 @@
   <div class="container">
     <div class="screen"></div>
     {% for r in row %}
-    <div class="row">
-      {{r}}
-      {% for s in seat %}
-      <input type="checkbox" name="{{s}}" id="{{s}}" class="seat">
-      {% endfor %}
-    </div>
+  <div class="row">
+    {{r.row}}
+    {% for s in seat %}
+      <input type="checkbox" name="seats" value="{{ r.pk }}_{{ s.pk }}" id="seat_{{ r.pk }}_{{ s.pk }}" class="seat">
     {% endfor %}
+  </div>
+{% endfor %}
+
   </div>
   <button type="submit">Clock</button>
 </form>

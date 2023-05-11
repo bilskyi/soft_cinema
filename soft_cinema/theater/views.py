@@ -9,11 +9,6 @@ def theater(request):
     return render(request, 'theater/theater.html')
 
 
-def buy_ticket(request, movie_slug):
-    movie = Movie.objects.filter(slug=movie_slug)
-    return render(request, 'theater/buy_ticket.html', {'movie': movie})
-
-
 class BuyTicket(DetailView):
     model = Movie
     template_name = 'theater/buy_ticket.html'
@@ -29,8 +24,8 @@ class BuyTicket(DetailView):
 
 
 def buy_ticket(request, movie_slug):
-    movie = Movie.objects.filter(slug=movie_slug)
-    form = SeatForm
+    movie = Movie.objects.get(slug=movie_slug)
+    form = SeatForm()
     row = Seat.objects.values('row').distinct()
     seat = Seat.objects.values('seat').distinct()
     context = {
@@ -40,7 +35,7 @@ def buy_ticket(request, movie_slug):
         'seat': seat,
     }
     if request.method == 'POST':
-        form = SeatForm(request.POST)    
+        form = SeatForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('movies')

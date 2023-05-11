@@ -24,6 +24,6 @@ def buy_ticket(request, movie_slug):
         form = SeatForm()
     context = {
         'movie': movie,
-        'form': form,
+        'form': form
     }
     return render(request, 'theater/buy_ticket.html', context=context)

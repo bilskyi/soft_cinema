@@ -11,6 +11,7 @@ def theater(request):
 
 def buy_ticket(request, movie_slug):
     movie = Movie.objects.get(slug=movie_slug)
+    seats = Seat.objects.values('seat_number')
     if request.method == 'POST':
         form = SeatForm(request.POST)
         if form.is_valid():
@@ -24,6 +25,7 @@ def buy_ticket(request, movie_slug):
         form = SeatForm()
     context = {
         'movie': movie,
-        'form': form
+        'form': form,
+        'seats': seats,
     }
     return render(request, 'theater/buy_ticket.html', context=context)

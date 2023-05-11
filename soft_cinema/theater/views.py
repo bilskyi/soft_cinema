@@ -11,15 +11,19 @@ def theater(request):
 
 def buy_ticket(request, movie_slug):
     movie = Movie.objects.get(slug=movie_slug)
-    form = SeatForm()
+    if request.method == 'POST':
+        form = SeatForm(request.POST)
+        if form.is_valid():
+            seat = form.cleaned_data['seat']
+            seat.is_available = False
+            seat.movie = movie
+            seat.save()
+            return redirect('movies')
+        
+    else:
+        form = SeatForm()
     context = {
         'movie': movie,
         'form': form,
     }
-    if request.method == 'POST':
-        form = SeatForm(request.POST)
-        if form.is_valid():
-
-            form.save()
-            return redirect('movies')
     return render(request, 'theater/buy_ticket.html', context=context)

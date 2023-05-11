@@ -2,7 +2,6 @@ from django import forms
 from .models import Seat
 
 
-class SeatForm(forms.ModelForm):
-    class Meta:
-        model = Seat
-        fields = ['seat_number']
+class SeatForm(forms.Form):
+    seat = forms.ModelChoiceField(queryset=Seat.objects.filter(is_available=True))
+    

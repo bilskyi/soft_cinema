@@ -1,18 +1,6 @@
 {% load static %}
-<link rel="stylesheet" href="{% static 'theater/css/style.css' %}">
+<link rel="stylesheet" href="{% static 'theater/css/style.css' %}" />
 <form method="post">
-  {% csrf_token %}
-  <div class="container">
-    <div class="screen"></div>
-    {% for r in row %}
-  <div class="row">
-    {{r.row}}
-    {% for s in seat %}
-      <input type="checkbox" name="seats" value="{{ r.pk }}_{{ s.pk }}" id="seat_{{ r.pk }}_{{ s.pk }}" class="seat">
-    {% endfor %}
-  </div>
-{% endfor %}
-
-  </div>
+  {% csrf_token %} {{form.as_p}}
   <button type="submit">Clock</button>
 </form>

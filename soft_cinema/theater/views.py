@@ -19,6 +19,7 @@ def buy_ticket(request, movie_slug):
     if request.method == 'POST':
         form = SeatForm(request.POST)
         if form.is_valid():
+
             form.save()
             return redirect('movies')
     return render(request, 'theater/buy_ticket.html', context=context)

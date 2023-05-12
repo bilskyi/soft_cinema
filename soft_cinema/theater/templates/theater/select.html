@@ -1,7 +1,22 @@
 {% load static %}
+
 <link rel="stylesheet" href="{% static 'theater/css/style.css' %}" />
+
 <form method="post">
   {% csrf_token %}
-  {{form.as_p}}
+  <div class="container">
+    <div class="screen"></div>
+    {% for seat in seats %}
+      {% if forloop.counter0|divisibleby:8 %}
+        </div><div class="row">
+      {% endif %}
+        <div class="seat{% if not seat.is_available %} occupied{% endif %}">
+        <label for="seat_{{ seat.id }}">
+          <input type="checkbox" id="seat_{{ seat.id }}" name="seat" value="{{ seat.id }}"{% if not seat.is_available %} disabled{% endif %}>
+          {{ seat.id }}
+        </label>
+        </div>
+    {% endfor %}
+  </div>
   <button type="submit">Book seats</button>
 </form>

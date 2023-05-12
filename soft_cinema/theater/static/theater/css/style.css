@@ -10,10 +10,26 @@ flex-direction: column;
 color: white;
 align-items: center;
 justify-content: top;
-height: 300vh;
 font-family: "Lato", "sans-serif";
 }
 
+button {
+    margin: 1em;
+    text-align: center;
+    float: right;
+    font-size: 24px;
+    color: #fff;
+    background-color: #e23c30;
+    text-decoration: none;
+    border-radius: 10%;
+    padding: 0.5em;
+  }
+  
+button:hover {
+    background-color: #e12626;
+    transition: background-color 0.3s ease;
+  }
+  
 .movie-container {
 margin: 60px 0;
 }
@@ -32,7 +48,6 @@ appearance: none;
 
 .container {
 perspective: 3000px;
-margin-bottom: 90px;
 }
 
 .seat {
@@ -111,3 +126,4 @@ margin: 15px 0;
 p.text span {
 color: #6feaf6;
 }
+

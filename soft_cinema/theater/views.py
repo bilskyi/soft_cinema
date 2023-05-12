@@ -11,7 +11,7 @@ def theater(request):
 
 def buy_ticket(request, movie_slug):
     movie = Movie.objects.get(slug=movie_slug)
-    seats = Seat.objects.filter(is_available=True)
+    seats = Seat.objects.all()
     if request.method == 'POST':
         form = SeatForm(request.POST)
         if form.is_valid():

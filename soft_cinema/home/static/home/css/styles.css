@@ -67,10 +67,10 @@ hr {
   margin-top: 50px;
 }
 
-.stages h2{
+.stages h2 {
   display: inline;
   font-size: 36px;
-  }
+}
 
 .stages a {
   background-color: #ffff;
@@ -111,11 +111,9 @@ hr {
   font-size: 1.4vw;
 }
 
-
 .movie a {
   color: #fff;
   text-decoration: none;
-  
 }
 
 .animate-charcter {
@@ -144,71 +142,71 @@ hr {
   to {
     background-position: -200% center;
   }
-}/* Make the website responsive for small screens */
+} /* Make the website responsive for small screens */
 @media screen and (max-width: 768px) {
   header {
-  flex-direction: column;
-  text-align: center;
-  max-width: 100%;
+    flex-direction: column;
+    text-align: center;
+    max-width: 100%;
   }
-  
+
   nav ul {
-  margin-top: 20px;
+    margin-top: 20px;
   }
-  
+
   nav li {
-  margin: 0 10px;
+    margin: 0 10px;
   }
-  
+
   .hero {
-  padding: 5%;
+    padding: 5%;
   }
-  
+
   .hero h2 {
-  font-size: 2.5rem;
+    font-size: 2.5rem;
   }
-  
+
   .hero p {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
   }
-  
+
   .stages h2 {
-  display: block;
-  font-size: 1rem;
-  margin-bottom: 2%;
-  width: 100%;
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 2%;
+    width: 100%;
   }
-  
+
   .movie-list {
-  margin: 2% 2%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+    margin: 2% 2%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
-  
+
   .movie {
-  width: 40%;
-  display: inline-block;
-  margin-bottom: 20px;
-  padding: 1rem;
-  margin-right: 1rem;
+    width: 40%;
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 1rem;
+    margin-right: 1rem;
   }
-  
+
   .movie img {
-  width: 100%;
-  height: 67.5%;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  object-fit: cover;
+    width: 100%;
+    height: 67.5%;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    object-fit: cover;
   }
-  
+
   .movie h3 {
-  font-size: 1.125rem;
+    font-size: 1.125rem;
   }
-  
+
   .movie p {
-  font-size: 1.25vw;
-  margin-bottom: 20px;
+    font-size: 1.25vw;
+    margin-bottom: 20px;
   }
-  }
+}

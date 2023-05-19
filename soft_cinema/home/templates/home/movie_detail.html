@@ -6,121 +6,165 @@
   <meta charset="UTF-8">
   <title>Cinema Information Page</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link
-      rel="shortcut icon"
-      href="{% static 'home/favicon/favicon.ico' %}"
-      type="image/x-icon"
-    />
-    <style>
-      #video-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 9999;
-        display: none;
-      }
-  
-      .close-button {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 10000;
-        font-size: 24px;
-        color: #ffffff;
-        background-color: #000000;
-        padding: 8px 12px;
-        border-radius: 4px;
-        cursor: pointer;
-      }
-  
-      .close-button:hover {
-        background-color: #222222;
-      }
-    </style>
+  <link rel="shortcut icon" href="{% static 'home/favicon/favicon.ico' %}" type="image/x-icon" />
+  <style>
+    #video-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      display: none;
+    }
+
+    .close-button {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 10000;
+      font-size: 24px;
+      color: #ffffff;
+      background-color: #000000;
+      padding: 8px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .close-button:hover {
+      background-color: #222222;
+    }
+  </style>
 </head>
 <body>
-    {% include 'home/header.html' %}
-    <main>
-
-  <div class="container">
-    <div class="movie-card">
-      <img src="{{movie.poster.url}}" alt="Movie Poster {{movie.name}}">
-      
-      
-      <!-- Adding video player -->
-      <button class="watch-trailer">Watch Trailer</button>
-      <div id="video-container">
-        <div id="player"></div>
-        <div class="close-button" onclick="closeVideoPlayer()">X</div>
+  {% include 'home/header.html' %}
+  <main>
+    <div class="container">
+      <div class="movie-card">
+        <img src="{{ movie.poster.url }}" alt="Movie Poster {{ movie.name }}">
+        <!-- Adding video player -->
+        <button class="watch-trailer" data-trailer-url="{{ movie.trailer }}">Watch Trailer</button>
+        <div id="video-container">
+          <div id="player"></div>
+          <div class="close-button" onclick="closeVideoPlayer()">X</div>
+        </div>
+        <div class="movie-details">
+          <h2>{{ movie.name }}</h2>
+          <p>{{ movie.description }}</p>
+          <p class="meta">
+            <span class="age-rating">{{ movie.age_limit }}+</span>
+            <span class="duration">{{ movie.duration }}</span>
+            <span class="production">{{ movie.year }}, {{ movie.production }}</span>
+          </p>
+          <ul>
+            <li><strong>Director:</strong> {{ movie.director }}</li>
+            <li><strong>Starring:</strong> {{ movie.starring }}</li>
+            <li><strong>Genre:</strong>
+              {% for category in categories %}
+                {{ category.name }}
+              {% endfor %}
+            </li>
+            <li><strong>Studio:</strong> {{ movie.studio }}</li>
+            <li><strong>Language:</strong> {{ movie.language }}</li>
+            <li><strong>Original Name:</strong> {{ movie.original_name }}</li>
+            <li>
+              <strong>Showtime:</strong> {{ movie.start_rental|date:"d.m.Y" }} - {{ movie.end_rental|date:"d.m.Y" }}
+            </li>
+          </ul>
+          <h2><a href="{% url 'buy-ticket' movie.slug %}" class="buy-ticket">Buy a Ticket</a></h2>
+        </div>
       </div>
-    
-      <script>
-        // Function to load YouTube API
-        function loadYouTubeAPI() {
-          var tag = document.createElement('script');
-          tag.src = 'https://www.youtube.com/iframe_api';
-          var firstScriptTag = document.getElementsByTagName('script')[0];
-          firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-        }
-    
-        // Function to create YouTube player
-        function createYouTubePlayer(videoId) {
-          var player = new YT.Player('player', {
-            height: '100%',
-            width: '100%',
-            videoId: videoId
-          });
-    
-          document.getElementById('video-container').style.display = 'block';
-        }
-    
-        // Function to close video player
-        function closeVideoPlayer() {
-          document.getElementById('video-container').style.display = 'none';
-          var player = document.getElementById('player');
-          player.innerHTML = '';
-        }
-    
-        // Load YouTube API
-        loadYouTubeAPI();
-    
-        // Add event listener to the "Watch Trailer" button
-        var watchTrailerButton = document.querySelector('.watch-trailer');
-        watchTrailerButton.addEventListener('click', function() {
-          createYouTubePlayer('h3U0QP1SQQo');
-        });
-      </script>
-      
-
-
-
-
-
-      <div class="movie-details">
-        <h2>{{movie.name}}</h2>
-        <p>{{movie.description}}</p>
-        <p class="meta"><span class="age-rating">{{movie.age_limit}}+</span>  <span class="duration">{{movie.duration}}</span> <span class="production">{{movie.year}}, {{movie.production}}</span></p>
-        <ul>
-          <li><strong>Director:</strong> {{movie.director}}</li>
-          <li><strong>Starring:</strong> {{movie.starring}}</li>
-          <li><strong>Genre:</strong> 
-            {% for category in categories %}
-              {{ category.name }}
-            {% endfor %}</li>
-          <li><strong>Studio:</strong> {{movie.studio}}</li>
-          <li><strong>Language:</strong> {{movie.language}}</li>
-          <li><strong>Original Name:</strong> {{movie.original_name}}</li>
-          <li><strong>Showtime:</strong> {{movie.start_rental|date:"d.m.Y"}}  - {{movie.end_rental|date:"d.m.Y"}}</li>
-        </ul>
-        <h2><a href="{% url 'buy-ticket' movie.slug %}" class="buy-ticket">Buy a Ticket</a></h2>
-      </div>
+      <!-- Add more movie cards as needed -->
     </div>
-    <!-- Add more movie cards as needed -->
-  </div>
-        
-</main>
-{% include 'home/footer.html' %}
+  </main>
+  {% include 'home/footer.html' %}
+  <script>
+    var youtubePlayer;
+
+// Function to load YouTube API
+function loadYouTubeAPI() {
+  var tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+}
+
+// Function to extract video ID from URL or embed link
+function getYouTubeVideoId(url) {
+  var videoId = '';
+  if (url.indexOf('youtube.com') !== -1) {
+    var match = url.match(/v=([^&]+)/);
+    if (match) {
+      videoId = match[1];
+    }
+  } else if (url.indexOf('youtu.be') !== -1) {
+    var match = url.match(/youtu.be\/([^&]+)/);
+    if (match) {
+      videoId = match[1];
+    }
+  }
+  return videoId;
+}
+
+// Function to create YouTube player
+function createYouTubePlayer(videoUrl) {
+  var videoId = getYouTubeVideoId(videoUrl);
+  if (videoId !== '') {
+    youtubePlayer = new YT.Player('player', {
+      height: '100%',
+      width: '100%',
+      videoId: videoId,
+      events: {
+        'onStateChange': onPlayerStateChange
+      }
+    });
+
+    document.getElementById('video-container').style.display = 'block';
+  } else {
+    alert('Invalid YouTube video URL or embed link.');
+  }
+}
+
+// Function to handle YouTube player state change
+function onPlayerStateChange(event) {
+  if (event.data === YT.PlayerState.ENDED) {
+    closeVideoPlayer();
+  }
+}
+
+// Function to close video player
+function closeVideoPlayer() {
+  document.getElementById('video-container').style.display = 'none';
+  var player = document.getElementById('player');
+  player.innerHTML = '';
+
+  // Stop the video playback
+  if (youtubePlayer) {
+    youtubePlayer.stopVideo();
+    youtubePlayer = null;
+  }
+}
+
+// Function to handle "Watch Trailer" button click
+function handleWatchTrailerClick(event) {
+  event.preventDefault();
+  var trailerUrl = this.getAttribute('data-trailer-url');
+  if (typeof YT !== 'undefined' && YT.loaded) {
+    createYouTubePlayer(trailerUrl);
+  } else {
+    alert('YouTube API is not available. Please try again later.');
+  }
+}
+
+// Load YouTube API
+loadYouTubeAPI();
+
+// Add event listeners to the "Watch Trailer" buttons
+var watchTrailerButtons = document.querySelectorAll('.watch-trailer');
+watchTrailerButtons.forEach(function (button) {
+  button.addEventListener('click', handleWatchTrailerClick);
+});
+
+  </script>
 </body>
 </html>

@@ -11,6 +11,34 @@
       href="{% static 'home/favicon/favicon.ico' %}"
       type="image/x-icon"
     />
+    <style>
+      #video-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        display: none;
+      }
+  
+      .close-button {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 10000;
+        font-size: 24px;
+        color: #ffffff;
+        background-color: #000000;
+        padding: 8px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+  
+      .close-button:hover {
+        background-color: #222222;
+      }
+    </style>
 </head>
 <body>
     {% include 'home/header.html' %}
@@ -19,7 +47,57 @@
   <div class="container">
     <div class="movie-card">
       <img src="{{movie.poster.url}}" alt="Movie Poster {{movie.name}}">
-      <a href="{{movie.trailer}}" class="watch-trailer">Watch Trailer</a>
+      
+      
+      <!-- Adding video player -->
+      <button class="watch-trailer">Watch Trailer</button>
+      <div id="video-container">
+        <div id="player"></div>
+        <div class="close-button" onclick="closeVideoPlayer()">X</div>
+      </div>
+    
+      <script>
+        // Function to load YouTube API
+        function loadYouTubeAPI() {
+          var tag = document.createElement('script');
+          tag.src = 'https://www.youtube.com/iframe_api';
+          var firstScriptTag = document.getElementsByTagName('script')[0];
+          firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        }
+    
+        // Function to create YouTube player
+        function createYouTubePlayer(videoId) {
+          var player = new YT.Player('player', {
+            height: '100%',
+            width: '100%',
+            videoId: videoId
+          });
+    
+          document.getElementById('video-container').style.display = 'block';
+        }
+    
+        // Function to close video player
+        function closeVideoPlayer() {
+          document.getElementById('video-container').style.display = 'none';
+          var player = document.getElementById('player');
+          player.innerHTML = '';
+        }
+    
+        // Load YouTube API
+        loadYouTubeAPI();
+    
+        // Add event listener to the "Watch Trailer" button
+        var watchTrailerButton = document.querySelector('.watch-trailer');
+        watchTrailerButton.addEventListener('click', function() {
+          createYouTubePlayer('h3U0QP1SQQo');
+        });
+      </script>
+      
+
+
+
+
+
       <div class="movie-details">
         <h2>{{movie.name}}</h2>
         <p>{{movie.description}}</p>

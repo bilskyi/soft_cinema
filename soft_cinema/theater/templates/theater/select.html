@@ -10,12 +10,16 @@
       {% if forloop.counter0|divisibleby:8 %}
         </div><div class="row">
       {% endif %}
-        <div class="seat{% if not seat.is_available %} occupied{% endif %}">
-        <label for="seat_{{ seat.id }}">
-          <input type="checkbox" id="seat_{{ seat.id }}" name="seat" value="{{ seat.id }}"{% if not seat.is_available %} disabled{% endif %}>
-          {{ seat.id }}
-        </label>
+      {% if seat.is_available %}
+        <div class="seat">
+          <label for="seat_{{ seat.id }}">
+            <input type="checkbox" id="seat_{{ seat.id }}" name="seat" value="{{ seat.id }}">
+            {{ seat.id }}
+          </label>
         </div>
+      {% else %}
+        <div class="seat occupied"></div>
+      {% endif %}
     {% endfor %}
   </div>
   <button type="submit">Book seats</button>

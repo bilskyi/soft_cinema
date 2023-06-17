@@ -1,7 +1,7 @@
 {% extends 'user/base.html' %}
 {% load static %}
 {% block fields %}
-{{form.as_p}}
+{{form}}
 <a href="{% url 'register' %}">Don't have an account?</a>
 <button class="btn-submit" type="submit">Log In</button>
 {% endblock %}

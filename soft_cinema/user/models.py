@@ -15,7 +15,6 @@ class Profile(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     USERNAME_FIELD = 'username'
-    # REQUIRED_FIELDS = []
 
 
 

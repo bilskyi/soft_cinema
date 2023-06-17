@@ -5,12 +5,12 @@ from django.urls import reverse_lazy
 from home.models import Movie
 from .models import Profile
 from .forms import LoginUserForm, UserRegisterForm
-from django.contrib.auth import login, logout
-from django.contrib.auth.views import LoginView
+from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 
 
-def register(request):
+def register_user(request):
     movie = Movie.objects.all()
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
@@ -18,22 +18,23 @@ def register(request):
             user = form.save()
             login(request, user)
             return redirect('home')
-    form = UserRegisterForm()
+    else:
+        form = UserRegisterForm()
     return render(request, 'user/register.html', {'form': form, 'title': 'Register Form', 'movie': movie})
 
 
-class LoginUser(LoginView):
-    form_class = LoginUserForm
-    template_name = 'user/login.html'
-
-    def get_success_url(self) -> str:
-        return reverse_lazy('home')
-    
-    def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
-        context = super().get_context_data(**kwargs)
-        context['title'] = 'Authentication Form'
-        return context
-    
+def login_user(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            user = authenticate(username=form.cleaned_data.get('username'),
+                                password=form.cleaned_data.get('password'))
+            login(request, user)
+            return redirect('home')
+    else:
+        form = AuthenticationForm()
+        print(form.errors)
+    return render(request, 'user/login.html', {'form': form})
 
 @login_required
 def logout_user(request):

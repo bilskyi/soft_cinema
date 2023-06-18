@@ -76,31 +76,7 @@ nav a:hover {
         border-radius: 3%;
         display: block;
     }
-    .watch-trailer {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: absolute;
-      margin: 1.5em;
-      width: 15.8em;
-      height: 4.5em;
-      background-color: #0e0e28;
-      text-decoration: none;
-      color: #f1dded;
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      border-radius: 3%;
-      font-size: 16px;
-      font-weight:bolder;
-      cursor: pointer;
-      margin-top: 28em;
-      transition: background-color 0.3s ease;
-    }
-    
-    .watch-trailer:hover {
-      background-color: #0a0a1a;
-      color: #ff0e5e;
-      transition: background-color 0.3s ease;
-    }
+  
     .movie-details {
       padding: 40px 10px;
     }
@@ -147,7 +123,7 @@ nav a:hover {
       color: #fff;
       background-color: #e23c30;
       text-decoration: none;
-      border-radius: 3%;
+      border-radius: 5px;
       padding: 0.5em;
     }
     

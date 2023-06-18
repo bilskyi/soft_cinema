@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 
 from home.models import Movie
 from .models import Profile
-from .forms import LoginUserForm, UserRegisterForm
+from .forms import UserRegisterForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
@@ -20,7 +20,7 @@ def register_user(request):
             return redirect('home')
     else:
         form = UserRegisterForm()
-    return render(request, 'user/register.html', {'form': form, 'title': 'Register Form', 'movie': movie})
+    return render(request, 'user/register.html', {'form': form})
 
 
 def login_user(request):

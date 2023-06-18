@@ -6,6 +6,10 @@
     <input type="text" name="username" autofocus="" required="" id="id_username">
 </div>
 <div>
+    <label for="id_email">Email:</label>
+    <input type="email" name="email" required="" id="id_email">
+</div>
+<div>
     <label for="id_password1">Password:</label>
     <input type="password" name="password1" autocomplete="new-password" required="" id="id_password1">
 </div>
@@ -13,7 +17,18 @@
     <label for="id_password2">Password confirmation:</label>
     <input type="password" name="password2" autocomplete="new-password" required="" id="id_password2">
 </div>
-<br>
+<br>    
+{% if form.errors %}
+<ul>
+{% for field in form %}
+
+    {% for error in field.errors %}
+        <li>{{error}}</li>
+    {% endfor %}
+
+{% endfor %}
+</ul>
+{% endif %}
 <a href="{% url 'login' %}" class="already-have">Already have an account?</a>
 <button class="btn-submit" type="submit">Sign Up</button>
 {% endblock %}

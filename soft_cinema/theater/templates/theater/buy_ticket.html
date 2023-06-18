@@ -11,6 +11,7 @@
       href="{% static 'home/favicon/favicon.ico' %}"
       type="image/x-icon"
     />
+  <link rel="stylesheet" href="{% static 'home/css/watch-trailer.css' %}">
 </head>
 <body>
   {% include 'home/header.html' %}
@@ -18,7 +19,12 @@
   <div class="container">
     <div class="movie-card">
       <img src="{{movie.poster.url}}" alt="Movie Poster {{movie.name}}">
-      <a href="{{movie.trailer}}" class="watch-trailer">Watch Trailer</a>
+        <!-- Adding video player -->
+        <button class="watch-trailer" data-trailer-url="{{ movie.trailer }}">Watch Trailer</button>
+        <div id="video-container">
+          <div id="player"></div>
+          <div class="close-button" onclick="closeVideoPlayer()">X</div>
+        </div>
       <div class="movie-details">
         <h2>{{movie.name}}</h2>
         <p class="meta"><span class="age-rating">{{movie.age_limit}}+</span>  <span class="duration">{{movie.duration}}</span> <span class="production">{{movie.year}}, {{movie.production}}</span></p>
@@ -28,6 +34,7 @@
     <!-- Add more movie cards as needed -->
   </div>
 </main>
+<script src="{% static 'home/js/watch-trailer.js' %}"></script>
 {% include 'home/footer.html' %}
 </body>
 </html>

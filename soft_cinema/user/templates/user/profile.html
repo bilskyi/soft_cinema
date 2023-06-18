@@ -3,23 +3,17 @@
 {% include 'home/header.html' %}
 <div class="profile-container">
     <div class="profile-header">
-      <h1>{{user.username}}</h1>
-      <h2>@{{user.username}}</h2>
+      <h1>{{request.user.username}}</h1>
+      <h2>@{{request.user.slug}}</h2>
     </div>
     <div class="profile-info">
       <h3>Email   💬</h3> 
-      <p>{{user.email}}</p>
+      <p>{{request.user.email}}</p>
       <h3>Favorite Movies  💥</h3>
       <ul>
         <li>Back to the Future</li>
         <li>Ghostbusters</li>
         <li>The Goonies</li>
-      </ul>
-      <h3>Favorite Bands  	💘</h3>
-      <ul>
-        <li>Queen</li>
-        <li>AC/DC</li>
-        <li>Guns N' Roses</li>
       </ul>
     </div>
   </div>

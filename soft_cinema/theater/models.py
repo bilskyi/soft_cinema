@@ -14,6 +14,7 @@ class Seat(models.Model):
     def __str__(self):
         return f"{self.hall} - {self.number} - {self.user}"
 
+
 class Hall(models.Model):
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
     date = models.DateTimeField()

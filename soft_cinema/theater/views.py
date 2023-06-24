@@ -13,6 +13,7 @@ def theater(request):
 def buy_ticket(request, movie_slug):
     movie = get_object_or_404(Movie, slug=movie_slug)
     seats = Seat.objects.all()
+    halls = Hall.objects.filter(movie__slug=movie_slug)
 
     if request.method == 'POST':
         form = SeatForm(request.POST)
@@ -32,6 +33,7 @@ def buy_ticket(request, movie_slug):
         'movie': movie,
         'form': form,
         'seats': seats,
+        'halls': halls,
     }
     
     return render(request, 'theater/buy_ticket.html', context=context)

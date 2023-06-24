@@ -5,7 +5,7 @@ from user.models import Profile
 class Seat(models.Model):
     hall = models.ForeignKey('Hall', on_delete=models.CASCADE, null=True)
     number = models.PositiveSmallIntegerField(unique=True)
-    user = models.OneToOneField(Profile, on_delete=models.CASCADE, null=True, blank=True)
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True, blank=True)
     is_available = models.BooleanField(default=True)
 
     class Meta:
@@ -16,7 +16,7 @@ class Seat(models.Model):
 
 class Hall(models.Model):
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
-    date = models.DateField()   
+    date = models.DateTimeField()
 
     def __str__(self):
         return f"{self.movie} - {self.date}"

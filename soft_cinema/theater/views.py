@@ -19,7 +19,6 @@ def buy_ticket(request, movie_slug):
         if form.is_valid():
             selected_seats = form.cleaned_data['seat']
             for seat in selected_seats:
-                # Assuming 'number' uniquely identifies a seat
                 seat_movie = Seat.objects.get(number=seat.number)
                 seat_movie.user = request.user
                 seat_movie.is_available = False

@@ -1,18 +1,23 @@
 from django.db import models
 from home.models import Movie
+from user.models import Profile
 
 class Seat(models.Model):
-    seat_number = models.PositiveSmallIntegerField(unique=True)
+    hall = models.ForeignKey('Hall', on_delete=models.CASCADE, null=True)
+    number = models.PositiveSmallIntegerField(unique=True)
+    user = models.OneToOneField(Profile, on_delete=models.CASCADE, null=True, blank=True)
     is_available = models.BooleanField(default=True)
-    movies = models.ManyToManyField(Movie, through='SeatMovie')
+
+    class Meta:
+        ordering = ['number']
 
     def __str__(self):
-        return f'Seat number {self.seat_number}'
+        return f"{self.hall} - {self.number} - {self.user}"
 
-class SeatMovie(models.Model):
-    seat = models.ForeignKey(Seat, on_delete=models.CASCADE)
+class Hall(models.Model):
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
-    is_available = models.BooleanField(default=True)
+    date = models.DateField()   
 
     def __str__(self):
-        return f'Seat {self.seat} - Movie {self.movie}'
+        return f"{self.movie} - {self.date}"
+

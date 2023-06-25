@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Seat, SeatMovie
+from .models import Seat, Hall
 
 class SeatAdmin(admin.ModelAdmin):
     list_display = ['seat_number', 'is_available']
@@ -10,5 +10,5 @@ class SeatMovieAdmin(admin.ModelAdmin):
     list_display = ['seat', 'movie', 'is_available']
     list_display_links = list_display
 
-admin.site.register(Seat, SeatAdmin)
-admin.site.register(SeatMovie, SeatMovieAdmin)
+admin.site.register(Seat)
+admin.site.register(Hall)

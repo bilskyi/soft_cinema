@@ -29,6 +29,15 @@
         <h2>{{movie.name}}</h2>
         <p class="meta"><span class="age-rating">{{movie.age_limit}}+</span>  <span class="duration">{{movie.duration}}</span> <span class="production">{{movie.year}}, {{movie.production}}</span></p>
         {% include 'theater/select.html' %}
+        <!-- Showtiming buttons -->
+        <div class="showtimings">
+            <div class="showtiming-buttons">
+              {% for hall in halls %}
+              <a href="#" class="showtiming">{{ hall.date|date:"H:i" }}</a>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <!-- Add more movie cards as needed -->

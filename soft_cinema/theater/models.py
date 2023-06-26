@@ -1,6 +1,8 @@
 from django.db import models
 from home.models import Movie
 from user.models import Profile
+from django.utils.text import slugify
+
 
 class Seat(models.Model):
     hall = models.ForeignKey('Hall', on_delete=models.CASCADE, null=True)
@@ -18,6 +20,8 @@ class Seat(models.Model):
 class Hall(models.Model):
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
     date = models.DateTimeField()
+    slug = models.SlugField(db_index=True, unique=True, null=True)
+
 
     def __str__(self):
         return f"{self.movie} - {self.date}"

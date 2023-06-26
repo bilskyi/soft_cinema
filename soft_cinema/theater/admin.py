@@ -6,9 +6,9 @@ class SeatAdmin(admin.ModelAdmin):
     list_display_links = list_display
 
 
-class SeatMovieAdmin(admin.ModelAdmin):
-    list_display = ['seat', 'movie', 'is_available']
-    list_display_links = list_display
+class HallAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ['movie']}
+
 
 admin.site.register(Seat)
-admin.site.register(Hall)
+admin.site.register(Hall, HallAdmin)

@@ -33,7 +33,7 @@
         <div class="showtimings">
             <div class="showtiming-buttons">
               {% for hall in halls %}
-              <a href="#" class="showtiming">{{ hall.date|date:"H:i" }}</a>
+              <a href="{% url 'buy-ticket-hall' movie.slug hall.slug %}" class="showtiming">{{ hall.date|date:"H:i" }}</a>
               {% endfor %}
             </div>
           </div>

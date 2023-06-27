@@ -5,7 +5,7 @@ from django.utils.text import slugify
 
 
 class Seat(models.Model):
-    hall = models.ForeignKey('Hall', on_delete=models.CASCADE, null=True)
+    hall = models.ManyToManyField('Hall')
     number = models.PositiveSmallIntegerField(unique=True)
     user = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True, blank=True)
     is_available = models.BooleanField(default=True)

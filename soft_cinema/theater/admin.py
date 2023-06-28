@@ -7,8 +7,14 @@ class SeatAdmin(admin.ModelAdmin):
 
 
 class HallAdmin(admin.ModelAdmin):
-    prepopulated_fields = {'slug': ['movie']}
+    
+    def save_model(self, request, obj, form, change):
+        super().save_model(request, obj, form, change)
 
+        seats = Seat.objects.all()
+
+        for seat in seats:
+            seat.hall.add(obj)
 
 admin.site.register(Seat)
 admin.site.register(Hall, HallAdmin)

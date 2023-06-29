@@ -29,7 +29,15 @@ class Hall(models.Model):
     def __str__(self):
         return f"{self.movie} - {self.date}"
 
-    def save(self, *args, **kwargs):
-        self.slug = slugify(f"{self.movie}-{self.date}")
-        super().save(*args, **kwargs)
 
+    def save(self, *args, **kwargs):
+        original_slug = slugify(f"{self.movie}-{self.date}")
+        unique_slug = original_slug
+        counter = 1
+
+        while Hall.objects.filter(slug=unique_slug).exists():
+            unique_slug = f"{original_slug}-{counter}"
+            counter += 1
+
+        self.slug = unique_slug
+        super().save(*args, **kwargs)

@@ -6,7 +6,8 @@ from django.utils.text import slugify
 
 
 class Seat(models.Model):
-    number = models.PositiveSmallIntegerField(unique=True)
+    hall = models.ForeignKey('Hall', on_delete=models.CASCADE, null=True)
+    number = models.PositiveSmallIntegerField()
     user = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True, blank=True)
     is_available = models.BooleanField(default=True)
 
@@ -29,8 +30,3 @@ class Hall(models.Model):
         self.slug = slugify(f"{self.movie}-{self.date}")
         super().save(*args, **kwargs)
 
-
-class HallSeat(models.Model):
-    hall = models.ForeignKey(Hall, on_delete=models.CASCADE)
-    seat = models.ForeignKey(Seat, on_delete=models.CASCADE)
-    is_available = models.BooleanField(default=True)

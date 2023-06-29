@@ -1,15 +1,13 @@
 from django.contrib import admin
-from .models import Seat, Hall, HallSeat
+from .models import Seat, Hall
 
 
 class HallAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
         super().save_model(request, obj, form, change)
 
-        seats = Seat.objects.all()
-
-        for seat in seats:
-            hall_seat = HallSeat(hall=obj, seat=seat)
+        for seat in range(32):
+            hall_seat = Seat(hall=obj, number=seat)
             hall_seat.save()
 
 
@@ -17,4 +15,3 @@ class HallAdmin(admin.ModelAdmin):
 
 admin.site.register(Seat)
 admin.site.register(Hall, HallAdmin)
-admin.site.register(HallSeat)

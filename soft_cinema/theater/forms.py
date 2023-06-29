@@ -1,8 +1,8 @@
 from django import forms
-from .models import HallSeat
+from .models import Seat
 
 class SeatForm(forms.Form):
     seat = forms.ModelMultipleChoiceField(
-        queryset=HallSeat.objects.filter(is_available=True),
+        queryset=Seat.objects.filter(is_available=True),
         widget=forms.CheckboxSelectMultiple,
     )

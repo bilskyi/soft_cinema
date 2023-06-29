@@ -23,6 +23,9 @@ class Hall(models.Model):
     date = models.DateTimeField()
     slug = models.SlugField(db_index=True, unique=True, blank=True)
 
+    class Meta:
+        ordering = ['date']
+
     def __str__(self):
         return f"{self.movie} - {self.date}"
 

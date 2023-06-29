@@ -34,7 +34,7 @@ def buy_ticket(request, movie_slug):
         'halls': halls,
     }
     
-    return render(request, 'theater/buy_ticket.html', context=context)
+    return render(request, 'theater/select_date.html', context=context)
 
 
 def buy_ticket_hall(request, movie_slug, hall_slug):

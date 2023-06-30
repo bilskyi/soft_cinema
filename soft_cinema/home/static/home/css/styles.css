@@ -18,7 +18,7 @@ main {
 }
 
 /* Style hero section */
-.hero {
+.welcome {
   background-image: url(hero.jpg);
   background-size: cover;
   background-position: center;
@@ -26,12 +26,12 @@ main {
   padding: 100px;
 }
 
-.hero h2 {
+.welcome h2 {
   font-size: 48px;
   margin-bottom: 20px;
 }
 
-.hero p {
+.welcome p {
   font-size: 24px;
   margin-bottom: 40px;
 }

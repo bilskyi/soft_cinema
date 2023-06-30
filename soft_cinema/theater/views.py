@@ -3,11 +3,6 @@ from django.shortcuts import redirect, render, get_object_or_404
 from home.models import Movie
 from .models import Seat, Hall
 from .forms import SeatForm
-from django.views.generic import DetailView
-
-
-def theater(request):
-    return render(request, 'theater/theater.html')
 
 
 def select_date(request, movie_slug):

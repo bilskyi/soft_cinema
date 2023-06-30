@@ -4,6 +4,7 @@ from django.shortcuts import render
 from .models import *
 from .utils import ContextMixin, MovieList
 
+
 class MovieDetail(DetailView):
     model = Movie
     slug_url_kwarg = 'movie_slug'
@@ -16,12 +17,13 @@ class MovieDetail(DetailView):
         context['categories'] = categories
         return context
 
+
 class Home(MovieList, ListView):
     pass
 
+
 class Movie(MovieList, ContextMixin, ListView):
     template_name = 'home/movies.html'
-    
 
 
 class StateList(ContextMixin, ListView):
@@ -38,4 +40,3 @@ class StateList(ContextMixin, ListView):
         state_slug = self.kwargs['state_slug']
         context['stage'] = self.model.objects.get(slug=state_slug)
         return context
-

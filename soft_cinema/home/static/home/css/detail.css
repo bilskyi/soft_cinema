@@ -1,4 +1,4 @@
-    /* CSS styles */
+/* CSS styles */
 * {
   margin: 0;
   padding: 0;
@@ -9,219 +9,173 @@ body {
   background-color: #16151e;
   color: #fff;
 }
-    /* Style header */
-header {
+/* Style header */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+}
+.movie-card {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
+  flex-direction: row;
+  margin-bottom: 60px;
+  border: 2px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
-header a{
+.movie-card img {
+  position: relative;
+  margin: 24px;
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 3%;
+  display: block;
+}
+
+.movie-details {
+  padding: 40px 10px;
+}
+.movie-details h2 {
+  font-size: 48px;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+.movie-details p {
+  font-size: 18px;
+  line-height: 1.2;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+.movie-details .meta {
+  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.movie-details .duration {
+  margin: 0 20px;
+}
+.movie-details .age-rating {
+  background-color: #f44336;
   color: #fff;
-  text-decoration: none;
+  padding: 3px 8px;
+  border-radius: 5px;
+}
+.movie-details ul {
+  margin-top: 18px;
+  margin-bottom: 0;
+  padding-left: 40px;
+}
+.movie-details ul li {
+  margin-bottom: 10px;
+  font-size: 20px;
 }
 
-/* Style navigation menu */
-nav ul {
-  display: flex;
-  list-style: none;
-}
-
-nav li {
-  margin-left: 40px;
-}
-
-nav a {
+.buy-ticket {
+  display: grid;
+  margin: 1em;
+  text-align: center;
+  font-size: 28px;
   color: #fff;
+  background-color: #e23c30;
   text-decoration: none;
-  background: linear-gradient(to right, rgb(255, 255, 255), rgb(255, 255, 255)),
-    linear-gradient(
-      to right,
-      rgba(255, 0, 0, 1),
-      rgba(255, 0, 180, 1),
-      rgba(0, 100, 200, 1)
-    );
-  background-size: 100% 1px, 0 1px;
-  background-position: 100% 100%, 0 100%;
-  background-repeat: no-repeat;
-  transition: background-size 400ms;
+  border-radius: 5px;
+  padding: 0.5em;
 }
 
-main {
-  padding: 20px;
+.buy-ticket:hover {
+  background-color: #e12626;
+  color: #ffffff;
+  transition: background-color 0.3s ease;
 }
 
-nav a:hover {
-  background-size: 0 1px, 100% 1px;
+/* CSS styles for mobile */
+@media screen and (max-width: 480px) {
+  header {
+    padding: 10px;
+  }
+
+  header h1 {
+    font-size: 24px;
+  }
+  nav li {
+    margin-left: 20px;
+    font-size: 12px;
+  }
+  .container {
+    padding: 20px;
+    width: 100%;
+    max-width: 100%;
+  }
+  .movie-card {
+    display: block;
+    position: relative;
+  }
+  .movie-card img {
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+  }
+  .watch-trailer {
+    position: absolute;
+    display: flex;
+    margin: 0 auto;
+    width: 80%;
+    height: 4.5em;
+    background-color: #ffff;
+    color: #222;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    left: 0;
+    right: 0;
+    margin-top: 1.2em;
+  }
+  .watch-trailer:hover {
+    background-color: #0a0a1a;
+    color: #ff0e5e;
+    transition: background-color 0.3s ease;
+  }
+  .movie-details {
+    padding: 20px;
+    margin-top: 6em;
+  }
+  .movie-details h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+  .movie-details p {
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+  .movie-details .meta {
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .movie-details .duration {
+    margin: 0 10px;
+  }
+  .movie-details .age-rating {
+    font-size: 12px;
+    padding: 2px 6px;
+  }
+  .movie-details ul {
+    margin-top: 10px;
+    margin-bottom: 0;
+    padding-left: 20px;
+  }
+  .movie-details ul li {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  .button {
+    font-size: 14px;
+    padding: 10px 20px;
+    margin: 10px 0;
+  }
 }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 40px;
-    }
-    .movie-card {
-      display: flex;
-      flex-direction: row;
-      margin-bottom: 60px;
-      border: 2px solid #ccc;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    }
-    .movie-card img {
-      position: relative;
-        margin: 24px;
-        width: 300px;
-        height: 400px;
-        object-fit: cover;
-        border-radius: 3%;
-        display: block;
-    }
-  
-    .movie-details {
-      padding: 40px 10px;
-    }
-    .movie-details h2 {
-      font-size: 48px;
-      margin-top: 0px;
-      margin-bottom: 20px;
-    }
-    .movie-details p {
-      font-size: 18px;
-      line-height: 1.2;
-      margin-top: 20px;
-      margin-bottom: 0;
-    }
-    .movie-details .meta {
-      font-size: 18px;
-      margin-top: 20px;
-      margin-bottom: 10px;
-    }
-    .movie-details .duration {
-      margin: 0 20px;
-    }
-    .movie-details .age-rating {
-      background-color: #f44336;
-      color: #fff;
-      padding: 3px 8px;
-      border-radius: 5px;
-    }
-    .movie-details ul {
-      margin-top: 18px;
-      margin-bottom: 0;
-      padding-left: 40px;
-    }
-    .movie-details ul li {
-      margin-bottom: 10px;
-      font-size: 20px;
-    }
-
-    .buy-ticket {
-      display:grid;
-      margin: 1em;
-      text-align: center;
-      font-size: 28px;
-      color: #fff;
-      background-color: #e23c30;
-      text-decoration: none;
-      border-radius: 5px;
-      padding: 0.5em;
-    }
-    
-    .buy-ticket:hover {
-      background-color: #e12626;
-      color: #ffffff;
-      transition: background-color 0.3s ease;
-    }
-    
-    /* CSS styles for mobile */
-    @media screen and (max-width: 480px) {
-      header {
-        padding: 10px;
-      }
-    
-      header h1 {
-        font-size: 24px;
-      }
-      nav li {
-        margin-left: 20px;
-        font-size: 12px;
-      }
-      .container {
-        padding: 20px;
-        width: 100%;
-        max-width: 100%;
-      }
-      .movie-card {
-        display: block;
-        position: relative;
-      }
-      .movie-card img {
-        margin: 0 auto;
-        width: 100%;
-        height: auto;
-      }
-      .watch-trailer {
-        position: absolute;
-        display: flex;
-        margin: 0 auto;
-        width: 80%;
-        height: 4.5em;
-        background-color: #ffff;
-        color: #222;
-        border: none;
-        font-size: 16px;
-        font-weight: bold;
-        text-decoration: none;
-        justify-content: center;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        left: 0;
-        right: 0;
-        margin-top: 1.2em;
-      }
-      .watch-trailer:hover {
-        background-color: #0a0a1a;
-        color: #ff0e5e;
-        transition: background-color 0.3s ease;
-      }
-      .movie-details {
-        padding: 20px;
-        margin-top: 6em;
-      }
-      .movie-details h2 {
-        font-size: 30px;
-        margin-bottom: 10px;
-      }
-      .movie-details p {
-        font-size: 16px;
-        margin-top: 10px;
-        margin-bottom: 0;
-      }
-      .movie-details .meta {
-        font-size: 16px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-      }
-      .movie-details .duration {
-        margin: 0 10px;
-      }
-      .movie-details .age-rating {
-        font-size: 12px;
-        padding: 2px 6px;
-      }
-      .movie-details ul {
-        margin-top: 10px;
-        margin-bottom: 0;
-        padding-left: 20px;
-      }
-      .movie-details ul li {
-        font-size: 16px;
-        margin-bottom: 10px;
-      }
-      .button {
-        font-size: 14px;
-        padding: 10px 20px;
-        margin: 10px 0;
-      }
-    }
-    

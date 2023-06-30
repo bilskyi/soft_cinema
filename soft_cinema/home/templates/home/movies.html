@@ -1,16 +1,13 @@
+{% extends 'home/base.html' %}
 {% load static %}
-<!-- TEST PAGE -->
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cinema Site - Home</title>
-    <link rel="stylesheet" href="{% static 'home/css/styles.css' %}" />
-  </head>
-  <body>
-    {% include 'home/header.html' %}
-    <section class="featured">
+
+{% block additional %}
+<link rel="stylesheet" href="{% static 'home/css/styles.css' %}" />
+{% endblock additional %}
+
+{% block content %}
+    <main>
+      <section class="featured">
         <div class="stages">
           <h2><a href="{% url 'movies' %}">All</a></h2>
           {% for state in states %}
@@ -18,7 +15,7 @@
             {% endfor %}
         </div>
           {% include 'home/movie_list.html' %}
-        </section>  
-        {% include 'home/footer.html' %}
-  </body>
-</html>
+        </section>
+    </main>
+{% endblock content %}
+

@@ -10,7 +10,7 @@ def theater(request):
     return render(request, 'theater/theater.html')
 
 
-def buy_ticket(request, movie_slug):
+def select_date(request, movie_slug):
     movie = get_object_or_404(Movie, slug=movie_slug)
     halls = Hall.objects.filter(movie__slug=movie_slug)
 

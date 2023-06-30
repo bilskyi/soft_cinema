@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+  rel="shortcut icon"
+  href="{% static 'home/favicon/favicon.ico' %}"
+  type="image/x-icon"
+/>
+  <link rel="stylesheet" href="{% static 'home/css/header.css' %}" />
+  <link rel="stylesheet" href="{% static 'home/css/footer.css' %}" />
+  <link rel="stylesheet" href="{% static 'home/css/dropdown.css' %}" />
+  {% block additional %}
+  {% endblock additional %}
+</head>
+{% block header %}
+<header>
+  <h1><a href="{% url 'home' %}">Cinema Site</a></h1>
+  <nav>
+    <ul>
+      <li class="padding-links"><a href="{% url 'home' %}">Home</a></li>
+      <li class="padding-links"><a href="{% url 'movies' %}">Movies</a></li>
+      <li class="padding-links"><a href="{% url 'theater' %}">Theaters</a></li>
+      {% if user.is_authenticated %}
+      <li class="dropdown">
+        <a href="#" id="dropdownMenu" class="dropdown-toggle"
+          >{{user.username}}</a
+        >
+        <ul class="dropdown-menu">
+          <li><a href="{% url 'profile' user.slug %}">Profile</a></li>
+          <li><a href="#">Settings</a></li>
+          <li><a href="{% url 'logout' %}">Log Out</a></li>
+        </ul>
+      </li>
+      {% else %}
+      <li>
+        <div class="login_register">
+          <a href="{% url 'login' %}">Log In</a>|
+          <a href="{% url 'register' %}"> Sign Up</a>
+        </div>
+      </li>
+      {% endif %}
+    </ul>
+  </nav>
+</header>
+<body>
+{% endblock header %}
+
+{% block content %}
+{% endblock content %}
+
+{% block footer%}
+<footer>
+  <p>&copy; 2023 Cinema Site. All rights reserved.</p>
+</footer>
+{% endblock footer %}
+</body>
+
+
+<script src="{% static 'home/js/header-dropdown.js' %}"></script>

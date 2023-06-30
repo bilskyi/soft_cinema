@@ -1,19 +1,11 @@
+{% extends 'home/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cinema Site - Home</title>
-    <link rel="stylesheet" href="{% static 'home/css/styles.css' %}" />
-    <link
-      rel="shortcut icon"
-      href="{% static 'home/favicon/favicon.ico' %}"
-      type="image/x-icon"
-    />
-  </head>
-  <body>
-      {% include 'home/header.html' %}  
+
+{% block additional %}
+<link rel="stylesheet" href="{% static 'home/css/styles.css' %}" />
+{% endblock additional %}
+
+{% block content %}
     <main>
       <section class="hero">
         <h2 class="animate-charcter">Welcome to Cinema Site</h2>
@@ -26,6 +18,5 @@
         {% include 'home/movie_list.html' %}
       </section>
     </main>
-    {% include 'home/footer.html' %}
-  </body>
-</html>
+{% endblock content %}
+

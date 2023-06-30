@@ -1,56 +1,63 @@
+{% extends 'home/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <link rel="stylesheet" href="{% static 'home/css/detail.css' %}">
-  <meta charset="UTF-8">
-  <title>Cinema Information Page</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" href="{% static 'home/favicon/favicon.ico' %}" type="image/x-icon" />
-  <link rel="stylesheet" href="{% static 'home/css/watch-trailer.css' %}">
-</head>
-<body>
-  {% include 'home/header.html' %}
-  <main>
-    <div class="container">
-      <div class="movie-card">
-        <img src="{{ movie.poster.url }}" alt="Movie Poster {{ movie.name }}">
-        <!-- Adding video player -->
-        <button class="watch-trailer" data-trailer-url="{{ movie.trailer }}">Watch Trailer</button>
-        <div id="video-container">
-          <div id="player"></div>
-          <div class="close-button" onclick="closeVideoPlayer()">X</div>
+
+{% block additional %}
+<link rel="stylesheet" href="{% static 'home/css/watch-trailer.css' %}" />
+<link rel="stylesheet" href="{% static 'home/css/detail.css' %}" />
+{% endblock additional %} 
+
+{% block content %}
+    <main>
+      <div class="container">
+        <div class="movie-card">
+          <img
+            src="{{ movie.poster.url }}"
+            alt="Movie Poster {{ movie.name }}"
+          />
+          <!-- Adding video player -->
+          <button class="watch-trailer" data-trailer-url="{{ movie.trailer }}">
+            Watch Trailer
+          </button>
+          <div id="video-container">
+            <div id="player"></div>
+            <div class="close-button" onclick="closeVideoPlayer()">X</div>
+          </div>
+          <div class="movie-details">
+            <h2>{{ movie.name }}</h2>
+            <p>{{ movie.description }}</p>
+            <p class="meta">
+              <span class="age-rating">{{ movie.age_limit }}+</span>
+              <span class="duration">{{ movie.duration }}</span>
+              <span class="production"
+                >{{ movie.year }}, {{ movie.production }}</span
+              >
+            </p>
+            <ul>
+              <li><strong>Director:</strong> {{ movie.director }}</li>
+              <li><strong>Starring:</strong> {{ movie.starring }}</li>
+              <li>
+                <strong>Genre:</strong>
+                {% for category in categories %} {{ category.name | capfirst }}
+                {% endfor %}
+              </li>
+              <li><strong>Studio:</strong> {{ movie.studio }}</li>
+              <li><strong>Language:</strong> {{ movie.language }}</li>
+              <li><strong>Original Name:</strong> {{ movie.original_name }}</li>
+              <li>
+                <strong>Showtime:</strong> {{ movie.start_rental|date:"d.m.Y" }}
+                - {{ movie.end_rental|date:"d.m.Y" }}
+              </li>
+            </ul>
+            <h2>
+              <a href="{% url 'buy-ticket' movie.slug %}" class="buy-ticket"
+                >Buy a Ticket</a
+              >
+            </h2>
+          </div>
         </div>
-        <div class="movie-details">
-          <h2>{{ movie.name }}</h2>
-          <p>{{ movie.description }}</p>
-          <p class="meta">
-            <span class="age-rating">{{ movie.age_limit }}+</span>
-            <span class="duration">{{ movie.duration }}</span>
-            <span class="production">{{ movie.year }}, {{ movie.production }}</span>
-          </p>
-          <ul>
-            <li><strong>Director:</strong> {{ movie.director }}</li>
-            <li><strong>Starring:</strong> {{ movie.starring }}</li>
-            <li><strong>Genre:</strong>
-              {% for category in categories %}
-                {{ category.name | capfirst }}
-              {% endfor %}
-            </li>
-            <li><strong>Studio:</strong> {{ movie.studio }}</li>
-            <li><strong>Language:</strong> {{ movie.language }}</li>
-            <li><strong>Original Name:</strong> {{ movie.original_name }}</li>
-            <li>
-              <strong>Showtime:</strong> {{ movie.start_rental|date:"d.m.Y" }} - {{ movie.end_rental|date:"d.m.Y" }}
-            </li>
-          </ul>
-          <h2><a href="{% url 'buy-ticket' movie.slug %}" class="buy-ticket">Buy a Ticket</a></h2>
-        </div>
+        <!-- Add more movie cards as needed -->
       </div>
-      <!-- Add more movie cards as needed -->
-    </div>
-  </main>
-  {% include 'home/footer.html' %}
-  <script src="{% static 'home/js/watch-trailer.js' %}"></script>
-</body>
-</html>
+    </main>
+{% endblock content %}
+
+<script src="{% static 'home/js/watch-trailer.js' %}"></script>

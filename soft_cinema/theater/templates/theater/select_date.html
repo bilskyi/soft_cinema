@@ -23,12 +23,13 @@
             <span class="duration">{{movie.duration}}</span>
             <span class="production">{{movie.year}}, {{movie.production}}</span>
           </p>
-          <hr>
+          <br>
           <div class="showtimings">
             <h3>Select Date and Time:</h3>
+            <hr>
             <div class="showtiming-buttons">
               {% for hall in halls %}
-                <a href="{% url 'buy-ticket-hall' movie.slug hall.slug %}" class="showtiming">{{ hall.date | date:"D, d M Y H:i" }}</a>
+                <a href="{% url 'buy-ticket-hall' movie.slug hall.slug %}" class="showtiming">{{ hall.date | date:"d M H:i" }}</a>
               {% endfor %}
             </div>
           </div>

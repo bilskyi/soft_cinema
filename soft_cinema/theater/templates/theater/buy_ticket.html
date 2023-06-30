@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
   <link rel="stylesheet" href="{% static 'home/css/detail.css' %}">
+  <link rel="stylesheet" href="{% static 'theater/css/select_date.css' %}">
   <meta charset="UTF-8">
   <title>Cinema Information Page</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,15 +28,18 @@
         </div>
       <div class="movie-details">
         <h2>{{movie.name}}</h2>
-        <p class="meta"><span class="age-rating">{{movie.age_limit}}+</span>  <span class="duration">{{movie.duration}}</span> <span class="production">{{movie.year}}, {{movie.production}}</span></p>
+        <p class="meta">
+          <span class="age-rating">{{movie.age_limit}}+</span>
+          <span class="duration">{{movie.duration}}</span>
+          <span class="production">{{movie.year}}, {{movie.production}}</span>
+        </p>
         {% include 'theater/select.html' %}
         <!-- Showtiming buttons -->
         <div class="showtimings">
-            <div class="showtiming-buttons">
-              {% for hall in halls %}
-              <a href="{% url 'buy-ticket-hall' movie.slug hall.slug %}" class="showtiming">{{ hall.date|date:"H:i" }}</a>
-              {% endfor %}
-            </div>
+          <div class="showtiming-buttons">
+            {% for hall in halls %}
+              <a href="{% url 'buy-ticket-hall' movie.slug hall.slug %}" class="showtiming">{{ hall.date | date:"d M H:i" }}</a>
+            {% endfor %}
           </div>
         </div>
       </div>

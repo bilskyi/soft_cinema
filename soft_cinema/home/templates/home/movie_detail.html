@@ -34,7 +34,7 @@
             <li><strong>Starring:</strong> {{ movie.starring }}</li>
             <li><strong>Genre:</strong>
               {% for category in categories %}
-                {{ category.name }}
+                {{ category.name | capfirst }}
               {% endfor %}
             </li>
             <li><strong>Studio:</strong> {{ movie.studio }}</li>

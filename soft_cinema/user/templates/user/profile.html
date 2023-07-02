@@ -1,6 +1,10 @@
+{% extends 'home/base.html' %}
 {% load static %}
+{% block additional %}
 <link rel="stylesheet" href="{% static 'user/css/profile.css' %}">
-{% include 'home/header.html' %}
+{% endblock additional %}
+
+{% block content %}
 <div class="profile-container">
     <div class="profile-header">
       <h1>{{request.user.username}}</h1>
@@ -17,4 +21,4 @@
       </ul>
     </div>
   </div>
-  
+{% endblock content %}

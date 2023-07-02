@@ -28,7 +28,7 @@ def select_date(request, movie_slug):
         'form': form,
         'halls': halls,
     }
-    
+
     return render(request, 'theater/select_date.html', context=context)
 
 
@@ -43,7 +43,8 @@ def buy_ticket_hall(request, movie_slug, hall_slug):
         if form.is_valid():
             selected_seats = form.cleaned_data['seat']
             for seat in selected_seats:
-                seat_movies = Seat.objects.filter(hall__slug=hall_slug, number=seat.number)
+                seat_movies = Seat.objects.filter(
+                    hall__slug=hall_slug, number=seat.number)
                 for seat_movie in seat_movies:
                     seat_movie.user = request.user
                     seat_movie.is_available = False
@@ -60,5 +61,5 @@ def buy_ticket_hall(request, movie_slug, hall_slug):
         'hall': hall,
         'halls': halls,
     }
-    
+
     return render(request, 'theater/buy_ticket.html', context=context)

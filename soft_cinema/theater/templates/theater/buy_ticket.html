@@ -5,6 +5,7 @@
   <link rel="stylesheet" href="{% static 'home/css/detail.css' %}">
   <link rel="stylesheet" href="{% static 'theater/css/select_date.css' %}">
   <link rel="stylesheet" href="{% static 'home/css/watch-trailer.css' %}">
+  <title>{{movie.name}} - Soft Cinema</title>
 {% endblock additional %}
 
 {% block content %}
@@ -29,9 +30,12 @@
         <!-- Showtiming buttons -->
         <div class="showtimings">
           <div class="showtiming-buttons">
-            {% for hall in halls %}
-            <a href="{% url 'buy-ticket-hall' movie.slug hall.slug %}" class="showtiming">{{ hall.date | date:"d M H:i" }}</a>
-          {% endfor %}
+            {% for hall_ in halls %}
+            <a href="{% url 'buy-ticket-hall' movie.slug hall_.slug %}" class="{% if hall.slug == hall_.slug %}selected_showtiming{% else %}showtiming{% endif %}">
+                {{ hall_.date | date:"d M H:i" }}
+            </a>
+        {% endfor %}
+        
         </div>
       </div>
       </div>

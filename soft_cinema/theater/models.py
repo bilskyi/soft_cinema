@@ -34,7 +34,4 @@ class Hall(models.Model):
     def save(self, *args, **kwargs):
         self.slug = slugify(f"{self.movie}-{self.date}")
 
-        if self.slug:
-            raise ValueError(f"There already exists {self.slug}")
-
         super().save(*args, **kwargs)

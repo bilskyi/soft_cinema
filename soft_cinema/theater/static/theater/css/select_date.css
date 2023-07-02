@@ -1,38 +1,56 @@
-/* select_date.css */
-
 .showtimings {
-    margin-top: 20px;
-  }
-  
-  .showtimings h3 {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .showtimings hr {
-    margin: 10px 0;
-    border: none;
-    border-top: 1px solid #ccc;
-  }
-  
-  .showtiming-buttons {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .showtiming {
-    display: inline-block;
-    padding: 8px 12px;
-    margin: 5px;
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    text-decoration: none;
-    color: #333;
-    font-size: 14px;
-  }
-  
-  .showtiming:hover {
-    background-color: #ccc;
-  }
-  
+  margin-top: 20px;
+}
+
+.showtimings h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.showtimings hr {
+  margin: 10px 0;
+  border: none;
+  border-top: 1px solid #ccc;
+}
+
+.showtiming-buttons {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.showtiming {
+  display: inline-block;
+  padding: 8px 12px;
+  margin: 5px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+}
+
+.showtiming:hover {
+  background-color: #ccc;
+}
+
+.selected_showtiming {
+  background-color: #12111b;
+  color: #ffffff;
+  display: inline-block;
+  padding: 8px 12px;
+  margin: 5px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 14px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.no-available {
+  background-color: #09080e;
+  color: #e60b0b;
+  padding: 5px 10px;
+  border-radius: 0 0 10px 10px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}

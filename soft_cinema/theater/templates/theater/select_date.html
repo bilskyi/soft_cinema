@@ -5,6 +5,7 @@
   <link rel="stylesheet" href="{% static 'home/css/detail.css' %}">
   <link rel="stylesheet" href="{% static 'theater/css/select_date.css' %}">
   <link rel="stylesheet" href="{% static 'home/css/watch-trailer.css' %}">
+  <title>{{movie.name}} - Soft Cinema</title>
 {% endblock additional %}
 
 {% block content %}
@@ -20,6 +21,7 @@
             <span class="production">{{movie.year}}, {{movie.production}}</span>
           </p>
           <br>
+          {% if halls %}
           <div class="showtimings">
             <h3>Select Date and Time:</h3>
             <hr>
@@ -29,6 +31,11 @@
               {% endfor %}
             </div>
           </div>
+          {% else %}
+          <hr>
+          <h2 class="no-available">No available sessions</h2>
+          <a href="{% url 'home' %}" class="showtiming">Back Home</a>
+          {% endif %}
           </div>
         </div>
       </div>

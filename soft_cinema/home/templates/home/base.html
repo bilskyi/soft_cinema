@@ -37,8 +37,8 @@
       {% else %}
       <li>
         <div class="login_register">
-          <a href="{% url 'login' %}">Log In</a>|
-          <a href="{% url 'register' %}"> Sign Up</a>
+          <a href="{% url 'register' %}"> Sign Up</a>|
+          <a href="{% url 'login' %}">Log In</a>
         </div>
       </li>
       {% endif %}
@@ -56,7 +56,7 @@
   <p>&copy; 2023 Cinema Site. All rights reserved.</p>
 </footer>
 {% endblock footer %}
-</body>
 
+</body>
 
 <script src="{% static 'home/js/header-dropdown.js' %}"></script>

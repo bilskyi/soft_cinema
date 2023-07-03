@@ -8,3 +8,9 @@ class UserRegisterForm(UserCreationForm):
     class Meta:
         model = Profile
         fields = ['username', 'email']
+
+
+class UserChangeForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['username', 'email']

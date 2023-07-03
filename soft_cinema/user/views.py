@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 
 from home.models import Movie
 from .models import Profile
-from .forms import UserRegisterForm
+from .forms import UserRegisterForm, UserChangeForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
@@ -36,10 +36,22 @@ def login_user(request):
         print(form.errors)
     return render(request, 'user/login.html', {'form': form})
 
+
 @login_required
 def logout_user(request):
     logout(request)
     return redirect('home')
+
+
+@login_required
+def settings(request):
+    if request.method == 'POST':
+        form = UserChangeForm(request.POST, instance=request.user )
+        if form.is_valid():
+            form.save()
+    else:
+        form = UserChangeForm()
+    return render(request, 'user/settings.html', {'form': form})
 
 
 @login_required

@@ -2,10 +2,15 @@
 {% load static %}
 {% block additional %}
 <link rel="stylesheet" href="{% static 'user/css/profile.css' %}">
+<title>@{{user.slug}}</title>
 {% endblock additional %}
+
 
 {% block content %}
 <div class="profile-container">
+  <div class="settings">
+    <a href="{% url 'settings' %}">Settings</a>
+  </div>
     <div class="profile-header">
       <h1>{{request.user.username}}</h1>
       <h2>@{{request.user.slug}}</h2>

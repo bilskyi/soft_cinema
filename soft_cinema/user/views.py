@@ -45,13 +45,16 @@ def logout_user(request):
 
 @login_required
 def settings(request):
+    message = ''
     if request.method == 'POST':
         form = UserChangeForm(request.POST, instance=request.user )
         if form.is_valid():
+            message = "Changes were successfullyy added"
             form.save()
+
     else:
         form = UserChangeForm()
-    return render(request, 'user/settings.html', {'form': form})
+    return render(request, 'user/settings.html', {'form': form, 'message': message})
 
 
 @login_required

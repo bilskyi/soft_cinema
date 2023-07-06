@@ -19,7 +19,6 @@ main {
 
 /* Style hero section */
 .welcome {
-  background-image: url(hero.jpg);
   background-size: cover;
   background-position: center;
   text-align: center;

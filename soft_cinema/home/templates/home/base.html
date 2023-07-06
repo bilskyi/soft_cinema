@@ -30,7 +30,7 @@
         >
         <ul class="dropdown-menu">
           <li><a href="{% url 'profile' user.slug %}">Profile</a></li>
-          <li><a href="#">Settings</a></li>
+          <li><a href="{% url 'settings' %}">Settings</a></li>
           <li><a href="{% url 'logout' %}">Log Out</a></li>
         </ul>
       </li>
@@ -48,8 +48,11 @@
 <body>
 {% endblock header %}
 
+
+<div class="content">
 {% block content %}
 {% endblock content %}
+</div>
 
 {% block footer%}
 <footer>

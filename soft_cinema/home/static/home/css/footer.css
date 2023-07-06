@@ -1,11 +1,20 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1;
+}
+
 /* Style footer */
 footer {
-    background-color: #111;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-  }
-  
-  footer p {
-    font-size: 14px;
-  }
+  background-color: #111;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}

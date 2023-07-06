@@ -6,20 +6,25 @@ body {
   background-color: #242333;
 }
 
-button {
+.button {
   margin: 1em;
   text-align: center;
   float: right;
   font-size: 24px;
   color: #fff;
-  background-color: #e23c30;
+  background-color: #eb4337;
   text-decoration: none;
   border-radius: 10%;
   padding: 0.5em;
+  border: 2px solid #ed3225;
+  transition: background-color 0.3s ease;
 }
 
-button:hover {
-  background-color: #e12626;
+  
+.button:hover {
+  color: #fff;
+  background-color: #ed3225;
+  cursor: pointer;
   transition: background-color 0.3s ease;
 }
 

@@ -1,0 +1,24 @@
+.payment-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .payment-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 80px;
+    margin: 0 10px;
+    font-size: 60px;
+    color: #fff;
+    background-color: #ff5722;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .payment-icons a:hover {
+    background-color: #f44336;
+  }

@@ -8,6 +8,7 @@ urlpatterns = [
     path('', include('home.urls')),
     path('theater/', include('theater.urls')),
     path('user/', include('user.urls')),
+    path('payment/', include('payment.urls')),
     #path('login/', include('user.urls')),
 ]
 

@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'theater.apps.TheaterConfig',
     'user.apps.UserConfig',
+    'payment.apps.PaymentConfig'
 ]
 
 MIDDLEWARE = [

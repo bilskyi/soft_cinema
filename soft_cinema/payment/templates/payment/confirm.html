@@ -1,0 +1,37 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block additional %}
+  <link rel="stylesheet" href="{% static 'home/css/detail.css' %}">
+  <link rel="stylesheet" href="{% static 'theater/css/select_date.css' %}">
+  <link rel="stylesheet" href="{% static 'home/css/watch-trailer.css' %}">
+  <link rel="stylesheet" href="{% static 'payment/confirm.css' %}">
+  <title>{{movie.name}} - Soft Cinema</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Font Awesome for icons -->
+{% endblock additional %}
+
+{% block content %}
+<main>
+    <div class="container">
+      <div class="movie-card">
+        <img class="poster" src="{{movie.poster.url}}" alt="Movie Poster {{movie.name}}">
+        <div class="movie-details">
+          <h2 class="movie-title">{{movie.name}}</h2>
+          <p class="meta">
+            <span class="age-rating">{{movie.age_limit}}+</span>
+            <span class="duration">{{movie.duration}}</span>
+            <span class="production">{{movie.year}}, {{movie.production}}</span>
+          </p>
+          <div class="payment-icons">
+            <a href="#" class="google-pay"><i class="fab fa-google-pay"></i></a> <!-- Google Pay icon -->
+            <a href="#" class="mastercard"><i class="fab fa-cc-mastercard"></i></a> <!-- MasterCard icon -->
+            <a href="#" class="visa"><i class="fab fa-cc-visa"></i></a> <!-- Visa icon -->
+            <a href="#" class="paypal"><i class="fab fa-cc-paypal"></i></a> <!-- PayPal icon -->
+            <!-- Add more payment icons here -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock content %}
+<script src="{% static 'home/js/watch-trailer.js' %}"></script>

@@ -41,15 +41,15 @@ def buy_ticket_hall(request, movie_slug, hall_slug):
     if request.method == 'POST':
         form = SeatForm(request.POST)
         if form.is_valid():
-            selected_seats = form.cleaned_data['seat']
-            for seat in selected_seats:
-                seat_movies = Seat.objects.filter(
-                    hall__slug=hall_slug, number=seat.number)
-                for seat_movie in seat_movies:
-                    seat_movie.user = request.user
-                    seat_movie.is_available = False
-                    seat_movie.save()
-            return redirect('movies')
+            # selected_seats = form.cleaned_data['seat']
+            # for seat in selected_seats:
+            #     seat_movies = Seat.objects.filter(
+            #         hall__slug=hall_slug, number=seat.number)
+            #     for seat_movie in seat_movies:
+            #         seat_movie.user = request.user
+            #         seat_movie.is_available = False
+            #         seat_movie.save()
+            return redirect('confirmation', movie_slug, hall_slug)
 
     else:
         form = SeatForm()

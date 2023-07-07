@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import confirm
+from .views import confirmation
 
 
 urlpatterns = [
-    path('confirm/<slug:movie_slug>/<slug:hall_slug>/', confirm, name='confirm')
+    path('confirmation/<slug:movie_slug>/<slug:hall_slug>/', confirmation, name='confirm')
 ]

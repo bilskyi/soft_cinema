@@ -19,9 +19,14 @@
           <h2 class="movie-title">{{movie.name}}</h2>
           <p class="meta">
             <span class="age-rating">{{movie.age_limit}}+</span>
-            <span class="duration">{{movie.duration}}</span>
+            <span class="duration">{{movie.duration}}</span> 
             <span class="production">{{movie.year}}, {{movie.production}}</span>
           </p>
+          <div class="session-info">
+            <div class="session-icon"><i class="far fa-clock"></i> {{hall.date | date:"H:i"}}</div> <!-- Time icon -->
+            <div class="session-icon"><i class="far fa-calendar-alt"></i> {{hall.date | date:"d M"}}</div> <!-- Date icon -->
+            <div class="session-icon"><i class="fas fa-dollar-sign"></i> 293$</div> <!-- Price icon -->
+          </div>
           <div class="payment-icons">
             <a href="#" class="google-pay"><i class="fab fa-google-pay"></i></a> <!-- Google Pay icon -->
             <a href="#" class="mastercard"><i class="fab fa-cc-mastercard"></i></a> <!-- MasterCard icon -->

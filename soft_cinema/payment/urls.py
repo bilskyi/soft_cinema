@@ -3,5 +3,5 @@ from .views import confirm
 
 
 urlpatterns = [
-    path('confirm/<slug:movie_slug>', confirm, name='confirm')
+    path('confirm/<slug:movie_slug>/<slug:hall_slug>/', confirm, name='confirm')
 ]

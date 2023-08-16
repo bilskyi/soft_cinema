@@ -24,7 +24,8 @@ In addition, there will be Telegram Bot with its own functionality trough applic
 
 **Theater** ->
 ```models.py```
-- Seats
+- Seat
+- Hall
 
 **User** ->
 ```models.py```
